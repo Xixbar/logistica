@@ -15,24 +15,26 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('cedula')->unique();
-            $table->string('nit')->unique();
+            
+            $table->string('cedula')->unique()->nullable();
+            $table->string('nit')->unique()->nullable();
             $table->string('nombre');
             $table->string('direccion');
             $table->string('ciudad');
-            $table->string('correoPersonal')->unique();
-            $table->string('correoEmpresarial');
-            $table->string('email1')->unique();
-            $table->string('email2')->unique();
+            $table->string('correoPersonal')->unique()->nullable();
+            $table->string('correoEmpresarial')->nullable();
+            $table->string('email1')->unique()->nullable();
+            $table->string('email2')->unique()->nullable();
             //$table->timestamp('email_verified_at')->nullable();
             $table->string('telefono');
-            $table->string('seguridadSocial1');
-            $table->string('seguridadSocial2');
-            $table->string('seguridadSocial3');
-            $table->string('tipoSangre');
-            $table->string('pais');
-            $table->string('nivelAutorizacion');
+            $table->string('seguridadSocial1')->nullable();
+            $table->string('seguridadSocial2')->nullable();
+            $table->string('seguridadSocial3')->nullable();
+            $table->string('tipoSangre')->nullable();
+            $table->string('pais')->nullable();
+            $table->string('nivelAutorizacion')->nullable();
             $table->string('password');
+
             $table->rememberToken();
             $table->timestamps();
         });

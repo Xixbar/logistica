@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class ContratosController extends Controller
 {
+    public function __construct()
+    {
+       // $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +29,7 @@ class ContratosController extends Controller
      */
     public function create()
     {
-        //
+        return view('contratos.create');
     }
 
     /**
@@ -35,7 +40,41 @@ class ContratosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'nitCliente' => 'required|min:11',
+            'nombreCliente' => 'required',
+            'nitVendedor ' => 'required|min:11',
+            'empresaVendedora' => 'required',
+            'mesEntrega' => 'required|min:11',
+            'toneladas' => 'required',
+            'tasaCambio' => 'required',
+            'precio' => 'required',
+            'prima' => 'required',
+            'tipoProducto' => 'required',
+            'producto' => 'required',
+            'paisDestino' => 'required',
+            'terminoIncoterm' => 'required|min:3'
+        ]);
+
+        $contratos = new Contratos();
+        $contratos->nitCliente = $validatedData['nitCliente'];
+        $contratos->nombreCliente = $validatedData['nombreCliente'];
+        $contratos->nitVendedor = $validatedData['nitVendedor'];
+        $contratos->empresaVendedora = $validatedData['empresaVendedora'];
+        $contratos->mesEntrega = $validatedData['mesEntrega'];
+        $contratos->toneladas = $validatedData['toneladas'];
+        $contratos->tasaCambio = $validatedData['tasaCambio'];
+        $contratos->precio = $validatedData['precio'];
+        $contratos->prima = $validatedData['prima'];
+        $contratos->tipoProducto = $validatedData['tipoProducto'];
+        $contratos->producto = $validatedData['producto'];
+        $contratos->paisDestino = $validatedData['paisDestino'];
+        $contratos->terminoIncoterm = $validatedData['terminoIncoterm'];
+        
+        $contratos->save(); //Insertar
+
+        $status = 'El contrato ha sido realizado exitosamente.';
+        return back()->with(compact('status'));
     }
 
     /**

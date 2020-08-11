@@ -16,10 +16,11 @@ class CreateContratosTable extends Migration
         Schema::create('contratos', function (Blueprint $table) {
             $table->id();
 
-            $table->date('fechaVenta');
             $table->string('nitCliente');
+            $table->foreign('nitCliente')->references('nit')->on('users');
             $table->string('nombreCliente');
             $table->string('nitVendedor');
+            $table->foreign('nitVendedor')->references('nit')->on('users');
             $table->string('empresaVendedora');
             $table->dateTime('mesEntrega');
             $table->double('toneladas');

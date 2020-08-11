@@ -15,6 +15,29 @@ class CreateNominacionesTable extends Migration
     {
         Schema::create('nominaciones', function (Blueprint $table) {
             $table->id();
+
+            $table->string('clienteVendedor');
+            $table->string('clienteComprador');
+            $table->unsignedBigInteger('numContrato');
+            $table->foreign('numContrato')->references('id')->on('contratos');
+            $table->string('producto');
+            $table->date('eta');
+            $table->dateTime('cutOff');
+            $table->string('naviera');
+            $table->string('motonave');
+            $table->string('viaje');
+            $table->string('booking');
+            $table->string('puerto');
+            $table->string('numContainer');
+            $table->double('tmContainer', 10, 5);
+            $table->double('unidadesContainer', 10, 5);
+            $table->double('toneladas', 10, 5);
+            $table->string('supervision');
+            $table->string('tipoContainer');
+            $table->string('instrucciones1')->nullable();
+            $table->string('instrucciones2')->nullable();
+            $table->string('instrucciones3')->nullable();
+
             $table->timestamps();
         });
     }
