@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class TrackingController extends Controller
 {
+    public function __construct()
+    {
+       // $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +29,7 @@ class TrackingController extends Controller
      */
     public function create()
     {
-        //
+        return view('tracking.create');
     }
 
     /**
@@ -35,7 +40,27 @@ class TrackingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'evento' => 'required',
+            'numNominacion' => 'required',
+            'toneladasNominadas  ' => 'required',
+            'almacenDestino' => 'required',
+            'numContainer' => 'required',
+            'cantidad' => 'required',
+        ]);
+
+        $tracking = new Tracking();
+        $tracking->evento = $validatedData['evento'];
+        $tracking->numNominacion = $validatedData['numNominacion'];
+        $tracking->toneladasNominadas  = $validatedData['toneladasNominadas '];
+        $tracking->almacenDestino = $validatedData['almacenDestino'];
+        $tracking->numContainer = $validatedData['numContainer'];
+        $tracking->cantidad = $validatedData['cantidad'];
+        
+        $tracking->save(); //Insertar
+
+        $status = 'El evento ha sido añadido exitosamente.';
+        return back()->with(compact('status'));
     }
 
     /**

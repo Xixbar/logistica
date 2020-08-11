@@ -24,4 +24,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contratos/create', 'ContratosController@create');
 Route::post('/contratos', 'ContratosController@store');
 
+Route::get('/nominaciones/create', 'NominacionesController@create');
+Route::post('/nominaciones', 'NominacionesController@store');
 
+Route::get('/tracking/create', 'TrackingController@create');
+Route::post('/tracking', 'TrackingController@store');

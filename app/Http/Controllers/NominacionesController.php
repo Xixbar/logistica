@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class NominacionesController extends Controller
 {
+    public function __construct()
+    {
+       // $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +29,7 @@ class NominacionesController extends Controller
      */
     public function create()
     {
-        //
+        return view('nominaciones.create');
     }
 
     /**
@@ -35,7 +40,55 @@ class NominacionesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'clienteVendedor' => 'required',
+            'clienteComprador' => 'required',
+            'numContrato' => 'required',
+            'producto' => 'required',
+            'eta' => 'required',
+            'cutOff' => 'required',
+            'naviera' => 'required',
+            'motonave' => 'required',
+            'viaje' => 'required',
+            'booking' => 'required',
+            'puerto' => 'required',
+            'numContainer' => 'required',
+            'tmContainer' => 'required',
+            'unidadesContainer' => 'required',
+            'toneladas' => 'required',
+            'supervision' => 'required',
+            'tipoContainer' => 'required',
+            'instrucciones1' => 'required',
+            'instrucciones2' => 'required',
+            'instrucciones3' => 'required',
+        ]);
+
+        $nominaciones = new Nominaciones();
+        $nominaciones->clienteVendedor = $validatedData['clienteVendedor'];
+        $nominaciones->clienteComprador = $validatedData['clienteComprador'];
+        $nominaciones->numContrato = $validatedData['numContrato'];
+        $nominaciones->producto = $validatedData['producto'];
+        $nominaciones->eta = $validatedData['eta'];
+        $nominaciones->cutOff = $validatedData['cutOff'];
+        $nominaciones->naviera = $validatedData['naviera'];
+        $nominaciones->motonave = $validatedData['motonave'];
+        $nominaciones->viaje = $validatedData['viaje'];
+        $nominaciones->booking = $validatedData['booking'];
+        $nominaciones->puerto = $validatedData['puerto'];
+        $nominaciones->numContainer = $validatedData['numContainer'];
+        $nominaciones->tmContainer = $validatedData['tmContainer'];
+        $nominaciones->unidadesContainer = $validatedData['unidadesContainer'];
+        $nominaciones->toneladas = $validatedData['toneladas'];
+        $nominaciones->supervision = $validatedData['supervision'];
+        $nominaciones->tipoContainer = $validatedData['tipoContainer'];
+        $nominaciones->instrucciones1 = $validatedData['instrucciones1'];
+        $nominaciones->instrucciones2 = $validatedData['instrucciones2'];
+        $nominaciones->instrucciones3 = $validatedData['instrucciones3'];
+        
+        $nominaciones->save(); //Insertar
+
+        $status = 'La nominación ha sido realizado exitosamente.';
+        return back()->with(compact('status'));
     }
 
     /**
