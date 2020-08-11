@@ -45,7 +45,7 @@ class ContratosController extends Controller
             'nombreCliente' => 'required',
             'nitVendedor ' => 'required|min:11',
             'empresaVendedora' => 'required',
-            'mesEntrega' => 'required|min:11',
+            'mesEntrega' => 'required',
             'toneladas' => 'required',
             'tasaCambio' => 'required',
             'precio' => 'required',
@@ -53,7 +53,7 @@ class ContratosController extends Controller
             'tipoProducto' => 'required',
             'producto' => 'required',
             'paisDestino' => 'required',
-            'terminoIncoterm' => 'required|min:3'
+            'terminoIncoterm' => 'required'
         ]);
 
         $contratos = new Contratos();
@@ -85,7 +85,7 @@ class ContratosController extends Controller
      */
     public function show(Contratos $contratos)
     {
-        //
+        return view('contratos.show', compact('contratos'));
     }
 
     /**
@@ -96,7 +96,9 @@ class ContratosController extends Controller
      */
     public function edit(Contratos $contratos)
     {
-        //
+        $this->authorize('update', $contratos);
+
+        return view('contratos.edit', compact('contratos'));
     }
 
     /**
@@ -108,7 +110,43 @@ class ContratosController extends Controller
      */
     public function update(Request $request, Contratos $contratos)
     {
-        //
+        $this->authorize('update', $contratos);
+
+        $validatedData = $request->validate([
+            'nitCliente' => 'required|min:11',
+            'nombreCliente' => 'required',
+            'nitVendedor ' => 'required|min:11',
+            'empresaVendedora' => 'required',
+            'mesEntrega' => 'required',
+            'toneladas' => 'required',
+            'tasaCambio' => 'required',
+            'precio' => 'required',
+            'prima' => 'required',
+            'tipoProducto' => 'required',
+            'producto' => 'required',
+            'paisDestino' => 'required',
+            'terminoIncoterm' => 'required|min:3'
+        ]);
+
+        $contratos = new Contratos();
+        $contratos->nitCliente = $validatedData['nitCliente'];
+        $contratos->nombreCliente = $validatedData['nombreCliente'];
+        $contratos->nitVendedor = $validatedData['nitVendedor'];
+        $contratos->empresaVendedora = $validatedData['empresaVendedora'];
+        $contratos->mesEntrega = $validatedData['mesEntrega'];
+        $contratos->toneladas = $validatedData['toneladas'];
+        $contratos->tasaCambio = $validatedData['tasaCambio'];
+        $contratos->precio = $validatedData['precio'];
+        $contratos->prima = $validatedData['prima'];
+        $contratos->tipoProducto = $validatedData['tipoProducto'];
+        $contratos->producto = $validatedData['producto'];
+        $contratos->paisDestino = $validatedData['paisDestino'];
+        $contratos->terminoIncoterm = $validatedData['terminoIncoterm'];
+        
+        $contratos->save(); //Actualizar
+
+        $status = 'El contrato ha sido actualizado exitosamente.';
+        return back()->with(compact('status'));
     }
 
     /**

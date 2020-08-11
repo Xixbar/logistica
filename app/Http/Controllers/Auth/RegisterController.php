@@ -50,8 +50,22 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            
+            'cedula ' => ['unique:users'],
+            'nit' => ['unique:users'],
+            'nombre' => ['required', 'string'],
+            'direccion' => ['required', 'string'],
+            'ciudad' => ['required', 'string'],
+            'correoPersonal' => ['string', 'email', 'unique:users'],
+            'correoEmpresarial' => [ 'string', 'email'],
+            'email1' => ['string', 'email', 'unique:users'],
+            'email2' => ['string', 'email', 'unique:users'],
+            'telefono' => ['required', 'string'],
+            'seguridadSocial1' => ['string'],
+            'seguridadSocial2' => ['string'],
+            'seguridadSocial3' => ['string'],
+            'tipoSangre' => ['string'],
+            'pais' => ['string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -65,8 +79,43 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
+            'cedula' => $data['cedula'],
+            'nit' => $data['nit'],
+            'nombre' => $data['nombre'],
+            'direccion' => $data['direccion'],
+            'ciudad' => $data['ciudad'],
+            'correoPersonal' => $data['correoPersonal'],
+            'correoEmpresarial' => $data['correoEmpresarial'],
+            'email1' => $data['email1'],
+            'email2' => $data['email2'],
+            'telefono' => $data['telefono'],
+            'seguridadSocial1' => $data['seguridadSocial1'],
+            'seguridadSocial2' => $data['seguridadSocial2'],
+            'seguridadSocial3' => $data['seguridadSocial3'],
+            'tipoSangre' => $data['tipoSangre'],
+            'pais' => $data['pais'],
+            'password' => Hash::make($data['password']),
+        ]);
+    }
+
+    protected function creates(array $data)
+    {
+        return User::create([
+            'cedula' => $data['cedula'],
+            'nit' => $data['nit'],
+            'nombre' => $data['nombre'],
+            'direccion' => $data['direccion'],
+            'ciudad' => $data['ciudad'],
+            'correoPersonal' => $data['correoPersonal'],
+            'correoEmpresarial' => $data['correoEmpresarial'],
+            'email1' => $data['email1'],
+            'email2' => $data['email2'],
+            'telefono' => $data['telefono'],
+            'seguridadSocial1' => $data['seguridadSocial1'],
+            'seguridadSocial2' => $data['seguridadSocial2'],
+            'seguridadSocial3' => $data['seguridadSocial3'],
+            'tipoSangre' => $data['tipoSangre'],
+            'pais' => $data['pais'],
             'password' => Hash::make($data['password']),
         ]);
     }
