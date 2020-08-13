@@ -17,22 +17,22 @@ class CreateUsersTable extends Migration
             $table->id();
             
             $table->string('cedula')->unique();
-            $table->string('nit')->unique();
+            //$table->string('nit')->unique();
             $table->string('nombre');
             $table->string('direccion');
             $table->string('ciudad');
             $table->string('correoPersonal')->unique();
             $table->string('correoEmpresarial');
-            $table->string('email1')->unique();
-            $table->string('email2')->unique();
+            //$table->string('email1')->unique();
+            //$table->string('email2')->unique();
             //$table->timestamp('email_verified_at')->nullable();
             $table->string('telefono');
             $table->string('seguridadSocial1');
             $table->string('seguridadSocial2');
             $table->string('seguridadSocial3');
             $table->string('tipoSangre');
-            $table->string('pais');
-            $table->string('nivelAutorizacion');
+            //$table->string('pais');
+            //$table->string('nivelAutorizacion');
             $table->string('password');
 
             $table->rememberToken();

@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Evento nuevo</div>
+                <div class="card-header">Editar evento</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    <form action="{{ url('/contratos') }}" method="POST">
+                    <form action="{{ url('/trackings/.$tracking->id') }}" method="POST">
+                        @method('PUT')
                         @csrf
 
                         <div class="form-row">
@@ -22,7 +23,7 @@
                                 <label for="evento">Evento</label>
 
                                 <input id="evento" type="text" class="form-control @error('evento') is-invalid @enderror"
-                                    name="evento" value="{{ old('evento') }}" required autocomplete="evento">
+                                    name="evento" value="{{ old('evento', $trackings->evento) }}" required autocomplete="evento">
 
                                 @error('evento')
                                 <span class="invalid-feedback" role="alert">
@@ -37,7 +38,7 @@
                                 <label for="numNominacion">Numero de nominación</label>
 
                                 <input id="numNominacion" type="number" class="form-control @error('numNominacion') is-invalid @enderror"
-                                    name="numNominacion" value="{{ old('numNominacion') }}" required autocomplete="numNominacion">
+                                    name="numNominacion" value="{{ old('numNominacion', $trackings->numNominacion) }}" required autocomplete="numNominacion">
 
                                 @error('numNominacion')
                                 <span class="invalid-feedback" role="alert">
@@ -50,7 +51,7 @@
                                 <label for="toneladasNominadas">Toneladas nominadas</label>
 
                                 <input id="toneladasNominadas" type="text" class="form-control @error('toneladasNominadas') is-invalid @enderror"
-                                    name="toneladasNominadas" value="{{ old('toneladasNominadas') }}" required autocomplete="toneladasNominadas">
+                                    name="toneladasNominadas" value="{{ old('toneladasNominadas', $trackings->toneladasNominadas) }}" required autocomplete="toneladasNominadas">
 
                                 @error('toneladasNominadas')
                                 <span class="invalid-feedback" role="alert">
@@ -65,7 +66,7 @@
                                 <label for="almacenDestino">Almacen de destino</label>
 
                                 <input id="almacenDestino" type="text" class="form-control @error('almacenDestino') is-invalid @enderror"
-                                    name="almacenDestino" value="{{ old('almacenDestino') }}" required autocomplete="almacenDestino">
+                                    name="almacenDestino" value="{{ old('almacenDestino', $trackings->alamacenDestino) }}" required autocomplete="almacenDestino">
 
                                 @error('almacenDestino')
                                 <span class="invalid-feedback" role="alert">
@@ -77,7 +78,7 @@
                                 <label for="placaCabezote">Placa cabezote</label>
 
                                 <input id="placaCabezote" type="text" class="form-control @error('placaCabezote') is-invalid @enderror"
-                                    name="placaCabezote" value="{{ old('placaCabezote') }}" required autocomplete="placaCabezote">
+                                    name="placaCabezote" value="{{ old('placaCabezote', $trackings->placaCabezote) }}" required autocomplete="placaCabezote">
 
                                 @error('placaCabezote')
                                 <span class="invalid-feedback" role="alert">
@@ -92,7 +93,7 @@
                                 <label for="numContainer">Numero de contenedor</label>
 
                                 <input id="numContainer" type="text" class="form-control @error('numContainer') is-invalid @enderror"
-                                    name="numContainer" value="{{ old('numContainer') }}" required autocomplete="numContainer">
+                                    name="numContainer" value="{{ old('numContainer', $trackings->numContainer) }}" required autocomplete="numContainer">
 
                                 @error('numContainer')
                                 <span class="invalid-feedback" role="alert">
@@ -105,7 +106,7 @@
                                 <label for="cantidad">Cantidad</label>
 
                                 <input id="cantidad" type="double" class="form-control @error('cantidad') is-invalid @enderror"
-                                    name="cantidad" value="{{ old('cantidad') }}" required autocomplete="cantidad">
+                                    name="cantidad" value="{{ old('cantidad', $trackings->cantidad) }}" required autocomplete="cantidad">
 
                                 @error('cantidad')
                                 <span class="invalid-feedback" role="alert">

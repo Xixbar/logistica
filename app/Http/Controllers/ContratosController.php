@@ -9,7 +9,7 @@ class ContratosController extends Controller
 {
     public function __construct()
     {
-       // $this->middleware('auth');
+       $this->middleware('auth');
     }
 
     /**
@@ -19,7 +19,8 @@ class ContratosController extends Controller
      */
     public function index()
     {
-        return view('contratos.index');
+        $contratos = Contratos::all();
+        return view('contratos.index', compact('contratos'));
     }
 
     /**
@@ -128,7 +129,6 @@ class ContratosController extends Controller
             'terminoIncoterm' => 'required|min:3'
         ]);
 
-        $contratos = new Contratos();
         $contratos->nitCliente = $validatedData['nitCliente'];
         $contratos->nombreCliente = $validatedData['nombreCliente'];
         $contratos->nitVendedor = $validatedData['nitVendedor'];

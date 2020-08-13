@@ -90,7 +90,7 @@
                             <div class="col-md-3 mb-3">
                                 <label for="toneladas">Toneladas</label>
 
-                                <input id="toneladas" type="double" class="form-control @error('toneladas') is-invalid @enderror"
+                                <input id="toneladas" type="text" class="form-control @error('toneladas') is-invalid @enderror"
                                     name="toneladas" value="{{ old('toneladas') }}" required autocomplete="toneladas">
 
                                 @error('toneladas')
@@ -103,7 +103,7 @@
                             <div class="col-md-3 mb-3">
                                 <label for="tasaCambio">Tasa de cambio</label>
 
-                                <input id="tasaCambio" type="double" class="form-control @error('tasaCambio') is-invalid @enderror"
+                                <input id="tasaCambio" type="text" class="form-control @error('tasaCambio') is-invalid @enderror"
                                     name="tasaCambio" value="{{ old('tasaCambio') }}" required autocomplete="tasaCambio">
 
                                 @error('tasaCambio')
@@ -118,7 +118,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="precio">Precio</label>
 
-                                <input id="precio" type="double" class="form-control @error('precio') is-invalid @enderror"
+                                <input id="precio" type="text" class="form-control @error('precio') is-invalid @enderror"
                                     name="precio" value="{{ old('precio') }}" required autocomplete="precio">
 
                                 @error('precio')
@@ -131,7 +131,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="prima">Prima</label>
 
-                                <input id="prima" type="double" class="form-control @error('prima') is-invalid @enderror"
+                                <input id="prima" type="text" class="form-control @error('prima') is-invalid @enderror"
                                     name="prima" value="{{ old('prima') }}" required autocomplete="prima">
 
                                 @error('prima')

@@ -9,7 +9,7 @@ class NominacionesController extends Controller
 {
     public function __construct()
     {
-       // $this->middleware('auth');
+       $this->middleware('auth');
     }
 
     /**
@@ -19,7 +19,8 @@ class NominacionesController extends Controller
      */
     public function index()
     {
-        //
+        $nominaciones = Nominaciones::all();
+        return view('nominaciones.index', compact('nominaciones'));
     }
 
     /**
@@ -58,9 +59,6 @@ class NominacionesController extends Controller
             'toneladas' => 'required',
             'supervision' => 'required',
             'tipoContainer' => 'required',
-            'instrucciones1' => 'required',
-            'instrucciones2' => 'required',
-            'instrucciones3' => 'required',
         ]);
 
         $nominaciones = new Nominaciones();
@@ -87,7 +85,7 @@ class NominacionesController extends Controller
         
         $nominaciones->save(); //Insertar
 
-        $status = 'La nominación ha sido realizado exitosamente.';
+        $status = 'La nominación ha sido realizada exitosamente.';
         return back()->with(compact('status'));
     }
 
@@ -99,7 +97,7 @@ class NominacionesController extends Controller
      */
     public function show(Nominaciones $nominaciones)
     {
-        //
+        return view('nominaciones.show', compact('nominaciones'));
     }
 
     /**
@@ -110,7 +108,9 @@ class NominacionesController extends Controller
      */
     public function edit(Nominaciones $nominaciones)
     {
-        //
+        $this->authorize('update', $nominaciones);
+
+        return view('nominaciones.edit', compact('nominaciones'));
     }
 
     /**
@@ -122,7 +122,53 @@ class NominacionesController extends Controller
      */
     public function update(Request $request, Nominaciones $nominaciones)
     {
-        //
+        $this->authorize('update', $nominaciones);
+
+        $validatedData = $request->validate([
+            'clienteVendedor' => 'required',
+            'clienteComprador' => 'required',
+            'numContrato' => 'required',
+            'producto' => 'required',
+            'eta' => 'required',
+            'cutOff' => 'required',
+            'naviera' => 'required',
+            'motonave' => 'required',
+            'viaje' => 'required',
+            'booking' => 'required',
+            'puerto' => 'required',
+            'numContainer' => 'required',
+            'tmContainer' => 'required',
+            'unidadesContainer' => 'required',
+            'toneladas' => 'required',
+            'supervision' => 'required',
+            'tipoContainer' => 'required',
+        ]);
+
+        $nominaciones->clienteVendedor = $validatedData['clienteVendedor'];
+        $nominaciones->clienteComprador = $validatedData['clienteComprador'];
+        $nominaciones->numContrato = $validatedData['numContrato'];
+        $nominaciones->producto = $validatedData['producto'];
+        $nominaciones->eta = $validatedData['eta'];
+        $nominaciones->cutOff = $validatedData['cutOff'];
+        $nominaciones->naviera = $validatedData['naviera'];
+        $nominaciones->motonave = $validatedData['motonave'];
+        $nominaciones->viaje = $validatedData['viaje'];
+        $nominaciones->booking = $validatedData['booking'];
+        $nominaciones->puerto = $validatedData['puerto'];
+        $nominaciones->numContainer = $validatedData['numContainer'];
+        $nominaciones->tmContainer = $validatedData['tmContainer'];
+        $nominaciones->unidadesContainer = $validatedData['unidadesContainer'];
+        $nominaciones->toneladas = $validatedData['toneladas'];
+        $nominaciones->supervision = $validatedData['supervision'];
+        $nominaciones->tipoContainer = $validatedData['tipoContainer'];
+        $nominaciones->instrucciones1 = $validatedData['instrucciones1'];
+        $nominaciones->instrucciones2 = $validatedData['instrucciones2'];
+        $nominaciones->instrucciones3 = $validatedData['instrucciones3'];
+        
+        $nominaciones->save(); //Actualizar
+
+        $status = 'La nominación ha sido actualizada exitosamente.';
+        return back()->with(compact('status'));
     }
 
     /**

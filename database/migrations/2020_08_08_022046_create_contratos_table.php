@@ -17,16 +17,16 @@ class CreateContratosTable extends Migration
             $table->id();
 
             $table->string('nitCliente');
-            $table->foreign('nitCliente')->references('nit')->on('users');
+           // $table->foreign('nitCliente')->references('nit')->on('users');
             $table->string('nombreCliente');
             $table->string('nitVendedor');
-            $table->foreign('nitVendedor')->references('nit')->on('users');
+        //  $table->foreign('nitVendedor')->references('nit')->on('users');
             $table->string('empresaVendedora');
             $table->dateTime('mesEntrega');
-            $table->double('toneladas');
-            $table->double('tasaCambio');
-            $table->double('precio');
-            $table->double('prima');
+            $table->string('toneladas');
+            $table->string('tasaCambio');
+            $table->string('precio');
+            $table->string('prima');
             $table->string('tipoProducto');
             $table->string('producto');
             $table->string('paisDestino');

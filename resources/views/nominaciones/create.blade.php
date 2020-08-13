@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Contrato nuevo</div>
+                <div class="card-header">Nominación nueva</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ url('/contratos') }}" method="POST">
+                    <form action="{{ url('/nominaciones') }}" method="POST">
                         @csrf
 
                         <div class="form-row">
@@ -75,7 +75,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="eta">ETA</label>
 
-                                <input id="eta" type="text" class="form-control @error('eta') is-invalid @enderror"
+                                <input id="eta" type="date" class="form-control @error('eta') is-invalid @enderror"
                                     name="eta" value="{{ old('eta') }}" required autocomplete="eta">
 
                                 @error('eta')
@@ -88,7 +88,7 @@
                             <div class="col-md-6 mb-3">
                                 <label for="cutOff">Cut Off</label>
 
-                                <input id="cutOff" type="text" class="form-control @error('cutOff') is-invalid @enderror"
+                                <input id="cutOff" type="datetime-local" class="form-control @error('cutOff') is-invalid @enderror"
                                     name="cutOff" value="{{ old('cutOff') }}" required autocomplete="cutOff">
 
                                 @error('cutOff')
@@ -223,7 +223,7 @@
 
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
-                                <label for="supervision">Supervision</label>
+                                <label for="supervision">Supervisión</label>
 
                                 <input id="supervision" type="text" class="form-control @error('supervision') is-invalid @enderror"
                                     name="supervision" value="{{ old('supervision') }}" required autocomplete="supervision">

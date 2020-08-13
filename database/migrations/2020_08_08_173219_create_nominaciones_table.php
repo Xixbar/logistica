@@ -19,7 +19,7 @@ class CreateNominacionesTable extends Migration
             $table->string('clienteVendedor');
             $table->string('clienteComprador');
             $table->unsignedBigInteger('numContrato');
-            $table->foreign('numContrato')->references('id')->on('contratos');
+            //$table->foreign('numContrato')->references('id')->on('contratos');
             $table->string('producto');
             $table->date('eta');
             $table->dateTime('cutOff');
@@ -29,9 +29,9 @@ class CreateNominacionesTable extends Migration
             $table->string('booking');
             $table->string('puerto');
             $table->string('numContainer');
-            $table->double('tmContainer', 10, 5);
-            $table->double('unidadesContainer', 10, 5);
-            $table->double('toneladas', 10, 5);
+            $table->string('tmContainer');
+            $table->string('unidadesContainer');
+            $table->string('toneladas');
             $table->string('supervision');
             $table->string('tipoContainer');
             $table->string('instrucciones1');
