@@ -33,6 +33,7 @@ class CreateUsersTable extends Migration
             $table->string('tipoSangre');
             //$table->string('pais');
             //$table->string('nivelAutorizacion');
+            //$table->foreign('nivelAutorizacion')->references('auth_id')->on('roles');
             $table->string('password');
 
             $table->rememberToken();

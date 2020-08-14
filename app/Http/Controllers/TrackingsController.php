@@ -99,7 +99,7 @@ class TrackingsController extends Controller
      */
     public function update(Request $request, Trackings $trackings)
     {
-        $this->authorize('update', $trackings);
+     //   $this->authorize('update', $trackings);
 
         $validatedData = $request->validate([
             'evento' => 'required',

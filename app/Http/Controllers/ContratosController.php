@@ -19,7 +19,9 @@ class ContratosController extends Controller
      */
     public function index()
     {
-        $contratos = Contratos::all();
+        $contratos = Contratos::where('nitCliente')
+                                ->orWhere('nitVendedor', 'John')
+                                ->get();
         return view('contratos.index', compact('contratos'));
     }
 
