@@ -19,7 +19,7 @@ class CreateNominacionesTable extends Migration
             $table->string('clienteVendedor');
             $table->string('clienteComprador');
             $table->unsignedBigInteger('numContrato');
-            //$table->foreign('numContrato')->references('id')->on('contratos');
+            $table->foreign('numContrato')->references('id')->on('contratos');
             $table->string('producto');
             $table->date('eta');
             $table->dateTime('cutOff');

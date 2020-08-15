@@ -86,7 +86,7 @@ class NominacionesController extends Controller
         $nominaciones->save(); //Insertar
 
         $status = 'La nominación ha sido realizada exitosamente.';
-        return back()->with(compact('status'));
+        return redirect(url('nominaciones'))->with(compact('status'));
     }
 
     /**
@@ -95,9 +95,9 @@ class NominacionesController extends Controller
      * @param  \App\Nominaciones  $nominaciones
      * @return \Illuminate\Http\Response
      */
-    public function show(Nominaciones $nominaciones)
+    public function show(Nominaciones $nominacion)
     {
-        return view('nominaciones.show', compact('nominaciones'));
+        return view('nominaciones.show', compact('nominacion'));
     }
 
     /**
@@ -106,11 +106,11 @@ class NominacionesController extends Controller
      * @param  \App\Nominaciones  $nominaciones
      * @return \Illuminate\Http\Response
      */
-    public function edit(Nominaciones $nominaciones)
+    public function edit(Nominaciones $nominacion)
     {
-        $this->authorize('update', $nominaciones);
+        $this->authorize('update', $nominacion);
 
-        return view('nominaciones.edit', compact('nominaciones'));
+        return view('nominaciones.edit', compact('nominacion'));
     }
 
     /**
@@ -120,9 +120,9 @@ class NominacionesController extends Controller
      * @param  \App\Nominaciones  $nominaciones
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Nominaciones $nominaciones)
+    public function update(Request $request, Nominaciones $nominacion)
     {
-        $this->authorize('update', $nominaciones);
+        $this->authorize('update', $nominacion);
 
         $validatedData = $request->validate([
             'clienteVendedor' => 'required',
@@ -144,28 +144,28 @@ class NominacionesController extends Controller
             'tipoContainer' => 'required',
         ]);
 
-        $nominaciones->clienteVendedor = $validatedData['clienteVendedor'];
-        $nominaciones->clienteComprador = $validatedData['clienteComprador'];
-        $nominaciones->numContrato = $validatedData['numContrato'];
-        $nominaciones->producto = $validatedData['producto'];
-        $nominaciones->eta = $validatedData['eta'];
-        $nominaciones->cutOff = $validatedData['cutOff'];
-        $nominaciones->naviera = $validatedData['naviera'];
-        $nominaciones->motonave = $validatedData['motonave'];
-        $nominaciones->viaje = $validatedData['viaje'];
-        $nominaciones->booking = $validatedData['booking'];
-        $nominaciones->puerto = $validatedData['puerto'];
-        $nominaciones->numContainer = $validatedData['numContainer'];
-        $nominaciones->tmContainer = $validatedData['tmContainer'];
-        $nominaciones->unidadesContainer = $validatedData['unidadesContainer'];
-        $nominaciones->toneladas = $validatedData['toneladas'];
-        $nominaciones->supervision = $validatedData['supervision'];
-        $nominaciones->tipoContainer = $validatedData['tipoContainer'];
-        $nominaciones->instrucciones1 = $validatedData['instrucciones1'];
-        $nominaciones->instrucciones2 = $validatedData['instrucciones2'];
-        $nominaciones->instrucciones3 = $validatedData['instrucciones3'];
+        $nominacion->clienteVendedor = $validatedData['clienteVendedor'];
+        $nominacion->clienteComprador = $validatedData['clienteComprador'];
+        $nominacion->numContrato = $validatedData['numContrato'];
+        $nominacion->producto = $validatedData['producto'];
+        $nominacion->eta = $validatedData['eta'];
+        $nominacion->cutOff = $validatedData['cutOff'];
+        $nominacion->naviera = $validatedData['naviera'];
+        $nominacion->motonave = $validatedData['motonave'];
+        $nominacion->viaje = $validatedData['viaje'];
+        $nominacion->booking = $validatedData['booking'];
+        $nominacion->puerto = $validatedData['puerto'];
+        $nominacion->numContainer = $validatedData['numContainer'];
+        $nominacion->tmContainer = $validatedData['tmContainer'];
+        $nominacion->unidadesContainer = $validatedData['unidadesContainer'];
+        $nominacion->toneladas = $validatedData['toneladas'];
+        $nominacion->supervision = $validatedData['supervision'];
+        $nominacion->tipoContainer = $validatedData['tipoContainer'];
+        $nominacion->instrucciones1 = $validatedData['instrucciones1'];
+        $nominacion->instrucciones2 = $validatedData['instrucciones2'];
+        $nominacion->instrucciones3 = $validatedData['instrucciones3'];
         
-        $nominaciones->save(); //Actualizar
+        $nominacion->save(); //Actualizar
 
         $status = 'La nominación ha sido actualizada exitosamente.';
         return back()->with(compact('status'));

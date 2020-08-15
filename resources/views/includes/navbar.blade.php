@@ -11,15 +11,18 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link {{Request::is('contratos') ? 'active' : ''}} {{Request::is('contratos/create') ? 'active' : ''}}" 
+                                <a class="nav-link {{Request::is('contratos') ? 'active' : ''}} {{Request::is('contratos/create') ? 'active' : ''}}
+                                {{Request::is('contratos/{contrato}') ? 'active' : ''}} {{Request::is('contratos/{contrato}/edit') ? 'active' : ''}}" 
                                 href="{{ url('/contratos') }}">{{ __('Contratos') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{Request::is('nominaciones') ? 'active' : ''}} {{Request::is('nominaciones/create') ? 'active' : ''}}" 
+                                <a class="nav-link {{Request::is('nominaciones') ? 'active' : ''}} {{Request::is('nominaciones/create') ? 'active' : ''}}
+                                {{Request::is('nominaciones/{nominacion}') ? 'active' : ''}} {{Request::is('nominaciones/{nominacion}/edit') ? 'active' : ''}}" 
                                 href="{{ url('/nominaciones') }}">{{ __('Nominaciones') }}</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link {{Request::is('trackings') ? 'active' : ''}} {{Request::is('trackings/create') ? 'active' : ''}}" 
+                                <a class="nav-link {{Request::is('trackings') ? 'active' : ''}} {{Request::is('trackings/create') ? 'active' : ''}}
+                                {{Request::is('trackings/{tracking}') ? 'active' : ''}} {{Request::is('trackings/{tracking}/edit') ? 'active' : ''}}" 
                                 href="{{ url('/trackings') }}">{{ __('Tracking') }}</a>
                             </li>
                             

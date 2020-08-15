@@ -9,7 +9,7 @@ class TrackingsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -63,7 +63,7 @@ class TrackingsController extends Controller
         $trackings->save(); //Insertar
 
         $status = 'El evento ha sido añadido exitosamente.';
-        return back()->with(compact('status'));
+        return redirect(url('trackings'))->with(compact('status'));
     }
 
     /**
@@ -72,9 +72,9 @@ class TrackingsController extends Controller
      * @param  \App\Trackings  $trackings
      * @return \Illuminate\Http\Response
      */
-    public function show(Trackings $trackings)
+    public function show(Trackings $tracking)
     {
-        return view('trackings.show', compact('trackings'));
+        return view('trackings.show', compact('tracking'));
     }
 
     /**
@@ -83,11 +83,11 @@ class TrackingsController extends Controller
      * @param  \App\Trackings  $trackings
      * @return \Illuminate\Http\Response
      */
-    public function edit(Trackings $trackings)
+    public function edit(Trackings $tracking)
     {
-       // $this->authorize('update', $trackings);
+        //$this->authorize('update', $tracking);
 
-        return view('trackings.edit', compact('trackings'));
+        return view('trackings.edit', compact('tracking'));
     }
 
     /**
@@ -97,9 +97,9 @@ class TrackingsController extends Controller
      * @param  \App\Trackings  $trackings
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Trackings $trackings)
+    public function update(Request $request, Trackings $tracking)
     {
-     //   $this->authorize('update', $trackings);
+        //$this->authorize('update', $tracking);
 
         $validatedData = $request->validate([
             'evento' => 'required',
@@ -111,15 +111,15 @@ class TrackingsController extends Controller
             'cantidad' => 'required',
         ]);
 
-        $trackings->evento = $validatedData['evento'];
-        $trackings->numNominacion = $validatedData['numNominacion'];
-        $trackings->toneladasNominadas  = $validatedData['toneladasNominadas'];
-        $trackings->almacenDestino = $validatedData['almacenDestino'];
-        $trackings->placaCabezote = $validatedData['placaCabezote'];
-        $trackings->numContainer = $validatedData['numContainer'];
-        $trackings->cantidad = $validatedData['cantidad'];
+        $tracking->evento = $validatedData['evento'];
+        $tracking->numNominacion = $validatedData['numNominacion'];
+        $tracking->toneladasNominadas  = $validatedData['toneladasNominadas'];
+        $tracking->almacenDestino = $validatedData['almacenDestino'];
+        $tracking->placaCabezote = $validatedData['placaCabezote'];
+        $tracking->numContainer = $validatedData['numContainer'];
+        $tracking->cantidad = $validatedData['cantidad'];
         
-        $trackings->save(); //Actualizar
+        $tracking->save(); //Actualizar
 
         $status = 'El evento ha sido actualizado exitosamente.';
         return back()->with(compact('status'));

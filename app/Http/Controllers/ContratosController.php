@@ -77,7 +77,7 @@ class ContratosController extends Controller
         $contratos->save(); //Insertar
 
         $status = 'El contrato ha sido realizado exitosamente.';
-        return back()->with(compact('status'));
+        return redirect(url('contratos'))->with(compact('status'));
     }
 
     /**
@@ -97,9 +97,9 @@ class ContratosController extends Controller
      * @param  \App\Contratos  $contratos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Contratos $contratos)
+    public function edit(Contratos $contrato)
     {
-        $this->authorize('update', $contratos);
+        $this->authorize('update', $contrato);
 
         return view('contratos.edit', compact('contratos'));
     }
@@ -111,9 +111,9 @@ class ContratosController extends Controller
      * @param  \App\Contratos  $contratos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Contratos $contratos)
+    public function update(Request $request, Contratos $contrato)
     {
-        $this->authorize('update', $contratos);
+        $this->authorize('update', $contrato);
 
         $validatedData = $request->validate([
             'nitCliente' => 'required|min:11',
@@ -128,24 +128,24 @@ class ContratosController extends Controller
             'tipoProducto' => 'required',
             'producto' => 'required',
             'paisDestino' => 'required',
-            'terminoIncoterm' => 'required|min:3'
+            'terminoIncoterm' => 'required'
         ]);
 
-        $contratos->nitCliente = $validatedData['nitCliente'];
-        $contratos->nombreCliente = $validatedData['nombreCliente'];
-        $contratos->nitVendedor = $validatedData['nitVendedor'];
-        $contratos->empresaVendedora = $validatedData['empresaVendedora'];
-        $contratos->mesEntrega = $validatedData['mesEntrega'];
-        $contratos->toneladas = $validatedData['toneladas'];
-        $contratos->tasaCambio = $validatedData['tasaCambio'];
-        $contratos->precio = $validatedData['precio'];
-        $contratos->prima = $validatedData['prima'];
-        $contratos->tipoProducto = $validatedData['tipoProducto'];
-        $contratos->producto = $validatedData['producto'];
-        $contratos->paisDestino = $validatedData['paisDestino'];
-        $contratos->terminoIncoterm = $validatedData['terminoIncoterm'];
+        $contrato->nitCliente = $validatedData['nitCliente'];
+        $contrato->nombreCliente = $validatedData['nombreCliente'];
+        $contrato->nitVendedor = $validatedData['nitVendedor'];
+        $contrato->empresaVendedora = $validatedData['empresaVendedora'];
+        $contrato->mesEntrega = $validatedData['mesEntrega'];
+        $contrato->toneladas = $validatedData['toneladas'];
+        $contrato->tasaCambio = $validatedData['tasaCambio'];
+        $contrato->precio = $validatedData['precio'];
+        $contrato->prima = $validatedData['prima'];
+        $contrato->tipoProducto = $validatedData['tipoProducto'];
+        $contrato->producto = $validatedData['producto'];
+        $contrato->paisDestino = $validatedData['paisDestino'];
+        $contrato->terminoIncoterm = $validatedData['terminoIncoterm'];
         
-        $contratos->save(); //Actualizar
+        $contrato->save(); //Actualizar
 
         $status = 'El contrato ha sido actualizado exitosamente.';
         return back()->with(compact('status'));

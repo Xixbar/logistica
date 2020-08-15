@@ -8,12 +8,6 @@
                 <div class="card-header">Evento nuevo</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
                     <form action="{{ url('/trackings') }}" method="POST">
                         @csrf
 
@@ -116,6 +110,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Completar</button>
+                        <a href={{ url('trackings') }} class="btn btn-danger ml-4">Regresar</a>
                     </form>
                 </div>
             </div>

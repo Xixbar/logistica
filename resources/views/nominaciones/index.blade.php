@@ -7,6 +7,12 @@
       <div class="card">
         <div class="card-header">{{ __('Nominaciones') }}</div>
 
+        @if (session('status'))
+          <div class="alert alert-success" role="alert">
+            {{ session('status') }}
+          </div>
+        @endif
+        
         <div class="container">
           <div class="form-group row mb-0">
             <div class="col mt-3 ml-1">
@@ -63,10 +69,13 @@
                   <td class="col-sm-2">{{$nominacion->toneladas}}</td>
                   <td class="col-sm-2">{{$nominacion->supervision}}</td>
                   <td class="col-sm-2">{{$nominacion->tipoContainer}}</td>
-                  <td>
-                    <a href="{{ url('/nominaciones/'.$nominacion->id.'/edit') }}" class="btn btn-primary">
-                      Edit entry
-                  </a>
+                  <td class="col-sm-2">
+                    <a href="{{ url('nominaciones/'.$nominacion->id) }}" class="btn btn-primary mr-2">
+                      Ver
+                    </a>
+                    <a href="{{ url('nominaciones/'.$nominacion->id.'/edit') }}" class="btn btn-warning">
+                      Editar
+                    </a>
                   </td>
                 </tr>
               @endforeach

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
-//use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Request;    
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -49,25 +48,24 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-  /*  protected function validator(array $data)
+    protected function validator(array $data)
     {
         return Validator::make($data, [
-            
-            'cedula' => ['unique:users'],
-            //'nit' => ['unique:users'],
+            'cedula' => ['unique:users','nullable'],
+            'nit' => ['unique:users','nullable'],
             'nombre' => ['required', 'string'],
             'direccion' => ['required', 'string'],
             'ciudad' => ['required', 'string'],
-            'correoPersonal' => ['string', 'email', 'unique:users'],
-            'correoEmpresarial' => [ 'string', 'email'],
-            //'email1' => ['string', 'email', 'unique:users'],
-           // 'email2' => ['string', 'email', 'unique:users'],
+            'correoPersonal' => ['string', 'email', 'unique:users','nullable'],
+            'correoEmpresarial' => [ 'string', 'email','nullable'],
+            'email1' => ['string', 'email', 'unique:users','nullable'],
+            'email2' => ['string', 'email', 'unique:users','nullable'],
             'telefono' => ['required', 'string'],
-            'seguridadSocial1' => ['string'],
-            'seguridadSocial2' => ['string'],
-            'seguridadSocial3' => ['string'],
-            'tipoSangre' => ['string'],
-            //'pais' => ['string'],
+            'seguridadSocial1' => ['string','nullable'],
+            'seguridadSocial2' => ['string','nullable'],
+            'seguridadSocial3' => ['string','nullable'],
+            'tipoSangre' => ['string','nullable'],
+            'pais' => ['string','nullable'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -78,85 +76,81 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(Request $request)
+    protected function create(array $data)
     {
-        $validatedData = $request->validate([
-            'cedula' => ['unique:users'],
-            //'nit' => ['unique:users'],
-            'nombre' => ['required', 'string'],
-            'direccion' => ['required', 'string'],
-            'ciudad' => ['required', 'string'],
-            'correoPersonal' => ['string', 'email', 'unique:users'],
-            'correoEmpresarial' => [ 'string', 'email'],
-            //'email1' => ['string', 'email', 'unique:users'],
-           // 'email2' => ['string', 'email', 'unique:users'],
-            'telefono' => ['required', 'string'],
-            'seguridadSocial1' => ['string'],
-            'seguridadSocial2' => ['string'],
-            'seguridadSocial3' => ['string'],
-            'tipoSangre' => ['string'],
-            //'pais' => ['string'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        $usuario = new User();
 
-        return User::create([
-            'cedula' => $validatedData['cedula'],
-            //'nit' => $validatedData['nit'],
-            'nombre' => $validatedData['nombre'],
-            'direccion' => $validatedData['direccion'],
-            'ciudad' => $validatedData['ciudad'],
-            'correoPersonal' => $validatedData['correoPersonal'],
-            'correoEmpresarial' => $validatedData['correoEmpresarial'],
-            //'email1' => $validatedData['email1'],
-            //'email2' => $validatedData['email2'],
-            'telefono' => $validatedData['telefono'],
-            'seguridadSocial1' => $validatedData['seguridadSocial1'],
-            'seguridadSocial2' => $validatedData['seguridadSocial2'],
-            'seguridadSocial3' => $validatedData['seguridadSocial3'],
-            'tipoSangre' => $validatedData['tipoSangre'],
-            //'pais' => $validatedData['pais'],
-            'password' => Hash::make($validatedData['password']),
-        ]);
-    }
+        if(isset($data["cedula"])){
+            $usuario->cedula = $data["celuda"];  
+        } else{
+            $usuario->cedula = NULL;
+        }
+        if(isset($data["nit"])){
+            $usuario->nit = $data['nit'];
+        } else{
+            $usuario->nit = NULL;
+        }   
 
-    protected function creates(Request $request)
-    {
-        $validatedData = $request->validate([
-            'cedula' => ['unique:users'],
-            //'nit' => ['unique:users'],
-            'nombre' => ['required', 'string'],
-            'direccion' => ['required', 'string'],
-            'ciudad' => ['required', 'string'],
-            'correoPersonal' => ['string', 'email', 'unique:users'],
-            'correoEmpresarial' => [ 'string', 'email'],
-            //'email1' => ['string', 'email', 'unique:users'],
-           // 'email2' => ['string', 'email', 'unique:users'],
-            'telefono' => ['required', 'string'],
-            'seguridadSocial1' => ['string'],
-            'seguridadSocial2' => ['string'],
-            'seguridadSocial3' => ['string'],
-            'tipoSangre' => ['string'],
-            //'pais' => ['string'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        $usuario->nombre = $data['nombre'];
+        $usuario->direccion = $data['direccion'];
+        $usuario->ciudad = $data['ciudad'];
 
-        return User::create([
-            'cedula' => $validatedData['cedula'],
-            //'nit' => $validatedData['nit'],
-            'nombre' => $validatedData['nombre'],
-            'direccion' => $validatedData['direccion'],
-            'ciudad' => $validatedData['ciudad'],
-            'correoPersonal' => $validatedData['correoPersonal'],
-            'correoEmpresarial' => $validatedData['correoEmpresarial'],
-            //'email1' => $validatedData['email1'],
-            //'email2' => $validatedData['email2'],
-            'telefono' => $validatedData['telefono'],
-            'seguridadSocial1' => $validatedData['seguridadSocial1'],
-            'seguridadSocial2' => $validatedData['seguridadSocial2'],
-            'seguridadSocial3' => $validatedData['seguridadSocial3'],
-            'tipoSangre' => $validatedData['tipoSangre'],
-            //'pais' => $validatedData['pais'],
-            'password' => Hash::make($validatedData['password']),
-        ]);
-    }
+        if(isset($data["correoPersonal"])){
+            $usuario->correoPersonal = $data['correoPersonal'];
+        } else{
+            $usuario->correoPersonal = NULL;
+        } 
+        if(isset($data["correoEmpresarial"])){
+            $usuario->correoEmpresarial = $data['correoEmpresarial'];
+        } else{
+            $usuario->correoEmpresarial = NULL;
+        } 
+        if(isset($data["email1"])){
+            $usuario->email1 = $data['email1'];
+        } else{
+            $usuario->email1 = NULL;
+        } 
+        if(isset($data["email2"])){
+            $usuario->email2 = $data['email2'];
+        } else{
+            $usuario->email2 = NULL;
+        }
+
+        $usuario->telefono = $data['telefono'];
+
+        if(isset($data["seguridadSocial1"])){
+            $usuario->seguridadSocial1 = $data['seguridadSocial1'];
+        } else{
+            $usuario->seguridadSocial1 = NULL;
+        } 
+        if(isset($data["seguridadSocial2"])){
+            $usuario->seguridadSocial2 = $data['seguridadSocial2'];
+        } else{
+            $usuario->seguridadSocial2 = NULL;
+        } 
+        if(isset($data["seguridadSocial3"])){
+            $usuario->seguridadSocial3 = $data['seguridadSocial3'];
+        } else{
+            $usuario->seguridadSocial3 = NULL;
+        } 
+        if(isset($data["tipoSangre"])){
+            $usuario->tipoSangre = $data['tipoSangre'];
+        } else{
+            $usuario->tipoSangre = NULL;
+        } 
+        if(isset($data["pais"])){
+            $usuario->pais = $data['pais'];
+        } else{
+            $usuario->pais = NULL;
+        } 
+
+        $usuario->password = Hash::make($data['password']);
+
+        $usuario->save();
+
+        $status = 'El usuario ha sido registrado exitosamente.';
+        return redirect(url('/login'))->with(compact('status'));
+            
+     }
+    
 }

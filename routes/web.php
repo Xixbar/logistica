@@ -13,27 +13,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
+Auth::routes(['reset'=>false]);
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/contratos', 'ContratosController@index');
 Route::get('/contratos/create', 'ContratosController@create')   ;
 Route::post('/contratos', 'ContratosController@store');
-Route::get('/contratos/{contratos}', 'ContratosController@show');
+Route::get('/contratos/{contrato}', 'ContratosController@show');
 Route::get('/contratos/{contrato}/edit', 'ContratosController@edit');
-Route::put('/contratos', 'ContratosController@update');
+Route::put('/contratos/{contrato}', 'ContratosController@update');
 
 Route::get('/nominaciones', 'nominacionesController@index');
 Route::get('/nominaciones/create', 'NominacionesController@create');
 Route::post('/nominaciones', 'NominacionesController@store');
 Route::get('/nominaciones/{nominacion}', 'NominacionesController@show');
 Route::get('/nominaciones/{nominacion}/edit', 'NominacionesController@edit');
-Route::put('/nominaciones', 'NominacionesController@update');
+Route::put('/nominaciones/{nominacion}', 'NominacionesController@update');
 
 Route::get('/trackings', 'TrackingsController@index');
 Route::get('/trackings/create', 'TrackingsController@create');
 Route::post('/trackings', 'TrackingsController@store');
 Route::get('/trackings/{tracking}', 'TrackingsController@show');
 Route::get('/trackings/{tracking}/edit', 'TrackingsController@edit');
-Route::put('/trackings', 'TrackingsController@update');
+Route::put('/trackings/{tracking}', 'TrackingsController@update');

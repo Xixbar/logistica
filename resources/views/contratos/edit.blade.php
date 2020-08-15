@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form action="{{ url('/contratos/.$contratos->id') }}" method="POST">
+                    <form action="{{ url('contratos/'.$contrato->id) }}" method="POST">
                         @method('PUT')
                         @csrf
 
@@ -23,7 +23,7 @@
                                 <label for="nitCliente">Nit del cliente</label>
 
                                 <input id="nitCliente" type="text" class="form-control @error('nitCliente') is-invalid @enderror"
-                                    name="nitCliente" value="{{ old('nitCliente', $contratos->nitCliente) }}" required autocomplete="nitCliente">
+                                    name="nitCliente" value="{{ old('nitCliente', $contrato->nitCliente) }}" required autocomplete="nitCliente">
 
                                 @error('nitCliente')
                                 <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
                                 <label for="nombreCliente">Nombre del cliente</label>
 
                                 <input id="nombreCliente" type="text" class="form-control @error('nombreCliente') is-invalid @enderror"
-                                    name="nombreCliente" value="{{ old('nombreCliente', $contratos->nombreCliente) }}" required autocomplete="nombreCliente">
+                                    name="nombreCliente" value="{{ old('nombreCliente', $contrato->nombreCliente) }}" required autocomplete="nombreCliente">
 
                                 @error('nombreCliente')
                                 <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
                                 <label for="nitVendedor">Nit del vendedor</label>
 
                                 <input id="nitVendedor" type="text" class="form-control @error('nitVendedor') is-invalid @enderror"
-                                    name="nitVendedor" value="{{ old('nitVendedor', $contratos->nitVendedor) }}" required autocomplete="nitVendedor">
+                                    name="nitVendedor" value="{{ old('nitVendedor', $contrato->nitVendedor) }}" required autocomplete="nitVendedor">
 
                                 @error('nitVendedor')
                                 <span class="invalid-feedback" role="alert">
@@ -64,7 +64,7 @@
                                 <label for="empresaVendedora">Empresa vendedora</label>
 
                                 <input id="empresaVendedora" type="text" class="form-control @error('empresaVendedora') is-invalid @enderror"
-                                    name="empresaVendedora" value="{{ old('empresaVendedora', $contratos->empresaVendedora) }}" required autocomplete="empresaVendedora">
+                                    name="empresaVendedora" value="{{ old('empresaVendedora', $contrato->empresaVendedora) }}" required autocomplete="empresaVendedora">
 
                                 @error('empresaVendedora')
                                 <span class="invalid-feedback" role="alert">
@@ -79,7 +79,7 @@
                                 <label for="mesEntrega">Mes de entrega</label>
 
                                 <input id="mesEntrega" type="date" class="form-control @error('mesEntrega') is-invalid @enderror"
-                                    name="mesEntrega" value="{{ old('mesEntrega', $contratos->mesEntrega) }}" required autocomplete="mesEntrega">
+                                    name="mesEntrega" value="{{ old('mesEntrega', $contrato->mesEntrega) }}" required autocomplete="mesEntrega">
 
                                 @error('mesEntrega')
                                 <span class="invalid-feedback" role="alert">
@@ -92,7 +92,7 @@
                                 <label for="toneladas">Toneladas</label>
 
                                 <input id="toneladas" type="double" class="form-control @error('toneladas') is-invalid @enderror"
-                                    name="toneladas" value="{{ old('toneladas', $contratos->toneladas) }}" required autocomplete="toneladas">
+                                    name="toneladas" value="{{ old('toneladas', $contrato->toneladas) }}" required autocomplete="toneladas">
 
                                 @error('toneladas')
                                 <span class="invalid-feedback" role="alert">
@@ -105,7 +105,7 @@
                                 <label for="tasaCambio">Tasa de cambio</label>
 
                                 <input id="tasaCambio" type="double" class="form-control @error('tasaCambio') is-invalid @enderror"
-                                    name="tasaCambio" value="{{ old('tasaCambio', $contratos->tasaCambio) }}" required autocomplete="tasaCambio">
+                                    name="tasaCambio" value="{{ old('tasaCambio', $contrato->tasaCambio) }}" required autocomplete="tasaCambio">
 
                                 @error('tasaCambio')
                                 <span class="invalid-feedback" role="alert">
@@ -120,7 +120,7 @@
                                 <label for="precio">Precio</label>
 
                                 <input id="precio" type="double" class="form-control @error('precio') is-invalid @enderror"
-                                    name="precio" value="{{ old('precio', $contratos->precio) }}" required autocomplete="precio">
+                                    name="precio" value="{{ old('precio', $contrato->precio) }}" required autocomplete="precio">
 
                                 @error('precio')
                                 <span class="invalid-feedback" role="alert">
@@ -133,7 +133,7 @@
                                 <label for="prima">Prima</label>
 
                                 <input id="prima" type="double" class="form-control @error('prima') is-invalid @enderror"
-                                    name="prima" value="{{ old('prima', $contratos->prima) }}" required autocomplete="prima">
+                                    name="prima" value="{{ old('prima', $contrato->prima) }}" required autocomplete="prima">
 
                                 @error('prima')
                                 <span class="invalid-feedback" role="alert">
@@ -148,7 +148,7 @@
                                 <label for="tipoProducto">Tipo de producto</label>
 
                                 <select id="tipoProducto" type="custom-select" class="form-control @error('tipoProducto') is-invalid @enderror"
-                                    name="tipoProducto" value="{{ old('tipoProducto', $contratos->tipoProducto) }}" required autocomplete="tipoProducto">
+                                    name="tipoProducto" value="{{ old('tipoProducto', $contrato->tipoProducto) }}" required autocomplete="tipoProducto">
                                     <option selected disabled value="">Selecciona...</option>
                                     <option>Azúcar blanco</option>
                                     <option>Azúcar crudo</option>
@@ -166,7 +166,7 @@
                                 <label for="producto">Producto</label>
 
                                 <select id="producto" type="custom-select" class="form-control @error('producto') is-invalid @enderror"
-                                    name="producto" value="{{ old('producto', $contratos->producto) }}" required autocomplete="producto">
+                                    name="producto" value="{{ old('producto', $contrato->producto) }}" required autocomplete="producto">
                                     <option selected disabled value="">Selecciona...</option>
                                     <option>Grano fino</option>
                                     <option>Grado 1</option>
@@ -191,7 +191,7 @@
                                 <label for="paisDestino">Pais de destino</label>
 
                                 <input id="paisDestino" type="text" class="form-control @error('paisDestino') is-invalid @enderror"
-                                    name="paisDestino" value="{{ old('paisDestino', $contratos->paisDestino) }}" required autocomplete="paisDestino">
+                                    name="paisDestino" value="{{ old('paisDestino', $contrato->paisDestino) }}" required autocomplete="paisDestino">
 
                                 @error('paisDestino')
                                 <span class="invalid-feedback" role="alert">
@@ -204,7 +204,7 @@
                                 <label for="terminoIncoterm">Termino Incoterm</label>
 
                                 <select id="terminoIncoterm" type="custom-select" class="form-control @error('terminoIncoterm') is-invalid @enderror"
-                                    name="terminoIncoterm" value="{{ old('terminoIncoterm', $contratos->terminoIncoterm) }}" required autocomplete="terminoIncoterm">
+                                    name="terminoIncoterm" value="{{ old('terminoIncoterm', $contrato->terminoIncoterm) }}" required autocomplete="terminoIncoterm">
                                     <option selected disabled value="">Selecciona...</option>
                                     <option>FOB</option>
                                     <option>FCA</option>
@@ -222,6 +222,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary">Completar</button>
+                        <a href={{ url('contratos') }} class="btn btn-danger ml-4">Regresar</a>
                     </form>
                 </div>
             </div>

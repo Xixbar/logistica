@@ -7,6 +7,12 @@
       <div class="card">
         <div class="card-header">{{ __('Trackings') }}</div>
 
+        @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+              @endif
+
         <div class="container">
           <div class="form-group row mb-0">
             <div class="col mt-3 ml-1">
@@ -43,10 +49,13 @@
                   <td class="col-sm-2">{{$tracking->placaCabezote}}</td>
                   <td class="col-sm-2">{{$tracking->numContainer}}</td>
                   <td class="col-sm-2">{{$tracking->cantidad}}</td>
-                  <td>
-                    <a href="{{ url('/trackings/'.$tracking->id.'/edit') }}" class="btn btn-primary">
-                      Edit entry
-                  </a>
+                  <td class="col-sm-2">
+                    <a href="{{ url('trackings/'.$tracking->id) }}" class="btn btn-primary mr-2">
+                      Ver
+                    </a>
+                    <a href="{{ url('trackings/'.$tracking->id.'/edit') }}" class="btn btn-warning">
+                      Editar
+                    </a>
                   </td>
                 </tr>
               @endforeach

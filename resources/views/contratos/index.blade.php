@@ -7,6 +7,12 @@
       <div class="card">
         <div class="card-header">{{ __('Contratos') }}</div>
 
+        @if (session('status'))
+          <div class="alert alert-success" role="alert">
+              {{ session('status') }}
+          </div>
+        @endif
+
         <div class="container">
           <div class="form-group row mb-0">
             <div class="col mt-3 ml-1">
@@ -36,6 +42,7 @@
               <th class="col-sm-2">Producto</th>
               <th class="col-sm-2">Pais de destino</th>
               <th class="col-sm-2">Termino incoterm</th>
+              <th class="col-sm-2">Acciones</th>
             </tr>
             </thead>
             <tbody>
@@ -56,6 +63,14 @@
                   <td class="col-sm-2">{{$contrato->producto}}</td>
                   <td class="col-sm-2">{{$contrato->paisDestino}}</td>
                   <td class="col-sm-2">{{$contrato->terminoIncoterm}}</td>
+                  <td class="col-sm-2">
+                    <a href="{{ url('contratos/'.$contrato->id) }}" class="btn btn-primary mr-2">
+                      Ver
+                    </a>
+                    <a href="{{ url('contratos/'.$contrato->id.'/edit') }}" class="btn btn-warning">
+                      Editar
+                    </a>
+                  </td>
                 </tr>
               @endforeach
             </tbody>
