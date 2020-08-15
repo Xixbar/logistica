@@ -77,7 +77,28 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {/*
+        return User::create([
+            
+            'cedula' => isset($data['cedula'])?'cedula': NULL,
+            'nit' => isset($data['nit'])?'nit': NULL,
+            'nombre' => $data['nombre'],
+            'direccion' => $data['direccion'],
+            'ciudad' => $data['ciudad'],
+            'correoPersonal' => isset($data['correoPersonal'])?'correoPersonal': NULL,
+            'correoEmpresarial' => isset($data['correoEmpresarial'])?'correoEmpresarial': NULL,
+            'email1' => isset($data['email1'])?'email1': NULL,
+            'email2' => isset($data['email2'])?'email2': NULL,
+            'telefono' => $data['telefono'],
+            'seguridadSocial1' => isset($data['seguridadSocial1'])?'seguridadSocial1': NULL,
+            'seguridadSocial2' => isset($data['seguridadSocial2'])?'seguridadSocial2': NULL,
+            'seguridadSocial3' => isset($data['seguridadSocial3'])?'seguridadSocial3': NULL,
+            'tipoSangre' => isset($data['tipoSangre'])?'tipoSangre': NULL,
+            'pais' => isset($data['pais'])?'pais': NULL,
+            'password' => Hash::make($data['password']),
+        ]);
+*/
+
         $usuario = new User();
 
         if(isset($data["cedula"])){
@@ -148,9 +169,25 @@ class RegisterController extends Controller
 
         $usuario->save();
 
-        $status = 'El usuario ha sido registrado exitosamente.';
-        return redirect(url('/login'))->with(compact('status'));
-            
+        /*
+        return $usuario::create([
+            'cedula' => $usuario['cedula'],
+            'nit' => $usuario['nit'],
+            'nombre' => $usuario['nombre'],
+            'direccion' => $usuario['direccion'],
+            'ciudad' => $usuario['ciudad'],
+            'correoPersonal' => $usuario['correoPersonal'],
+            'correoEmpresarial' => $usuario['correoEmpresarial'],
+            'email1' => $usuario['email1'],
+            'email2' => $usuario['email2'],
+            'telefono' => $usuario['telefono'],
+            'seguridadSocial1' => $usuario['seguridadSocial1'],
+            'seguridadSocial2' => $usuario['seguridadSocial2'],
+            'seguridadSocial3' => $usuario['seguridadSocial3'],
+            'tipoSangre' => $usuario['tipoSangre'],
+            'pais' => $usuario['pais'],
+            'password' => $usuario['password'],
+        ]);
+        */
      }
-    
 }
