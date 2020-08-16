@@ -51,7 +51,7 @@
                                 <label for="toneladasNominadas">Toneladas nominadas</label>
 
                                 <input id="toneladasNominadas" type="text" class="form-control @error('toneladasNominadas') is-invalid @enderror"
-                                    name="toneladasNominadas" value="{{ old('toneladasNominadas', $tracking->toneladasNominadas) }}" required autocomplete="toneladasNominadas">
+                                    name="toneladasNominadas" value="{{ old('toneladasNominadas', $tracking->toneladasNominadas) }}" autocomplete="toneladasNominadas">
 
                                 @error('toneladasNominadas')
                                 <span class="invalid-feedback" role="alert">
@@ -66,7 +66,7 @@
                                 <label for="almacenDestino">Almacen de destino</label>
 
                                 <input id="almacenDestino" type="text" class="form-control @error('almacenDestino') is-invalid @enderror"
-                                    name="almacenDestino" value="{{ old('almacenDestino', $tracking->almacenDestino) }}" required autocomplete="almacenDestino">
+                                    name="almacenDestino" value="{{ old('almacenDestino', $tracking->almacenDestino) }}" autocomplete="almacenDestino">
 
                                 @error('almacenDestino')
                                 <span class="invalid-feedback" role="alert">
@@ -78,7 +78,7 @@
                                 <label for="placaCabezote">Placa cabezote</label>
 
                                 <input id="placaCabezote" type="text" class="form-control @error('placaCabezote') is-invalid @enderror"
-                                    name="placaCabezote" value="{{ old('placaCabezote', $tracking->placaCabezote) }}" required autocomplete="placaCabezote">
+                                    name="placaCabezote" value="{{ old('placaCabezote', $tracking->placaCabezote) }}" autocomplete="placaCabezote">
 
                                 @error('placaCabezote')
                                 <span class="invalid-feedback" role="alert">
@@ -93,7 +93,7 @@
                                 <label for="numContainer">Numero de contenedor</label>
 
                                 <input id="numContainer" type="text" class="form-control @error('numContainer') is-invalid @enderror"
-                                    name="numContainer" value="{{ old('numContainer', $tracking->numContainer) }}" required autocomplete="numContainer">
+                                    name="numContainer" value="{{ old('numContainer', $tracking->numContainer) }}" autocomplete="numContainer">
 
                                 @error('numContainer')
                                 <span class="invalid-feedback" role="alert">
@@ -106,7 +106,7 @@
                                 <label for="cantidad">Cantidad</label>
 
                                 <input id="cantidad" type="double" class="form-control @error('cantidad') is-invalid @enderror"
-                                    name="cantidad" value="{{ old('cantidad', $tracking->cantidad) }}" required autocomplete="cantidad">
+                                    name="cantidad" value="{{ old('cantidad', $tracking->cantidad) }}" autocomplete="cantidad">
 
                                 @error('cantidad')
                                 <span class="invalid-feedback" role="alert">
@@ -116,6 +116,19 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label for="observacion">Observación de edición</label>
+
+                            <textarea id="observacion" class="form-control @error('observacion') is-invalid @enderror"
+                                name="observacion" value="{{ old('observacion') }}" rows="2" required autocomplete="observacion"></textarea>
+
+                            @error('observacion')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        
                         <button type="submit" class="btn btn-primary">Completar</button>
                         <a href={{ url('trackings') }} class="btn btn-danger ml-4">Regresar</a>
                     </form>

@@ -10,5 +10,5 @@ class Nominaciones extends Model
                             'producto', 'eta', 'cutOff', 'naviera', 'motonave',
                             'viaje', 'booking', 'puerto', 'numContainer', 'tmContainer',
                             'unidadesContainer', 'toneladas','supervision','tipoContainer', 'instrucciones1',
-                            'instrucciones2', 'instrucciones3'];
+                            'instrucciones2', 'instrucciones3','observacion'];
 }

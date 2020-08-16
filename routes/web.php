@@ -37,3 +37,10 @@ Route::post('/trackings', 'TrackingsController@store');
 Route::get('/trackings/{tracking}', 'TrackingsController@show');
 Route::get('/trackings/{tracking}/edit', 'TrackingsController@edit');
 Route::put('/trackings/{tracking}', 'TrackingsController@update');
+
+Route::get('/ingenios', 'IngenioController@index');
+Route::get('/ingenios/create', 'IngenioController@create')   ;
+Route::post('/ingenios', 'IngenioController@store');
+Route::get('/ingenios/{ingenio}', 'IngenioController@show');
+Route::get('/ingenios/{ingenio}/edit', 'IngenioController@edit');
+Route::put('/ingenios/{ingenio}', 'IngenioController@update');

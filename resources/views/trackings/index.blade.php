@@ -24,6 +24,9 @@
         </div>
 
         <div class="card-body">
+        @if ($trackings->isEmpty())            
+          <p>Aún no se ha añadido ningun evento</p>              
+        @else
           <table class="table table-responsive" >
             <thead>
             <tr class="d-flex">
@@ -61,6 +64,7 @@
               @endforeach
             </tbody>
           </table>
+        @endif  
         </div>
       </div>
     </div>

@@ -24,6 +24,9 @@
         </div>
         
         <div class="card-body">
+        @if ($contratos->isEmpty())             
+          <p>Aún no se ha registrado ninguna contrato</p>              
+        @else
           <table class="table table-responsive" >
             <thead>
             <tr class="d-flex">
@@ -75,6 +78,7 @@
               @endforeach
             </tbody>
           </table>
+        @endif 
         </div>
       </div>
     </div>

@@ -34,9 +34,10 @@ class CreateNominacionesTable extends Migration
             $table->string('toneladas');
             $table->string('supervision');
             $table->string('tipoContainer');
-            $table->string('instrucciones1');
-            $table->string('instrucciones2');
-            $table->string('instrucciones3');
+            $table->string('instrucciones1')->nullable();
+            $table->string('instrucciones2')->nullable();
+            $table->string('instrucciones3')->nullable();
+            $table->string('observacion')->nullable();
 
             $table->timestamps();
         });

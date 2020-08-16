@@ -22,7 +22,7 @@ class CreateContratosTable extends Migration
             $table->string('nitVendedor');
             $table->foreign('nitVendedor')->references('nit')->on('users');
             $table->string('empresaVendedora');
-            $table->dateTime('mesEntrega');
+            $table->date('mesEntrega');
             $table->string('toneladas');
             $table->string('tasaCambio');
             $table->string('precio');
@@ -31,6 +31,7 @@ class CreateContratosTable extends Migration
             $table->string('producto');
             $table->string('paisDestino');
             $table->string('terminoIncoterm');
+            $table->string('observacion')->nullable();
             
             $table->timestamps();
         });

@@ -44,7 +44,7 @@
                                 <label for="toneladasNominadas">Toneladas nominadas</label>
 
                                 <input id="toneladasNominadas" type="text" class="form-control @error('toneladasNominadas') is-invalid @enderror"
-                                    name="toneladasNominadas" value="{{ old('toneladasNominadas') }}" required autocomplete="toneladasNominadas">
+                                    name="toneladasNominadas" value="{{ old('toneladasNominadas') }}" autocomplete="toneladasNominadas">
 
                                 @error('toneladasNominadas')
                                 <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
                                 <label for="almacenDestino">Almacen de destino</label>
 
                                 <input id="almacenDestino" type="text" class="form-control @error('almacenDestino') is-invalid @enderror"
-                                    name="almacenDestino" value="{{ old('almacenDestino') }}" required autocomplete="almacenDestino">
+                                    name="almacenDestino" value="{{ old('almacenDestino') }}" autocomplete="almacenDestino">
 
                                 @error('almacenDestino')
                                 <span class="invalid-feedback" role="alert">
@@ -71,7 +71,7 @@
                                 <label for="placaCabezote">Placa cabezote</label>
 
                                 <input id="placaCabezote" type="text" class="form-control @error('placaCabezote') is-invalid @enderror"
-                                    name="placaCabezote" value="{{ old('placaCabezote') }}" required autocomplete="placaCabezote">
+                                    name="placaCabezote" value="{{ old('placaCabezote') }}" autocomplete="placaCabezote">
 
                                 @error('placaCabezote')
                                 <span class="invalid-feedback" role="alert">
@@ -86,7 +86,7 @@
                                 <label for="numContainer">Numero de contenedor</label>
 
                                 <input id="numContainer" type="text" class="form-control @error('numContainer') is-invalid @enderror"
-                                    name="numContainer" value="{{ old('numContainer') }}" required autocomplete="numContainer">
+                                    name="numContainer" value="{{ old('numContainer') }}" autocomplete="numContainer">
 
                                 @error('numContainer')
                                 <span class="invalid-feedback" role="alert">
@@ -99,7 +99,7 @@
                                 <label for="cantidad">Cantidad</label>
 
                                 <input id="cantidad" type="text" class="form-control @error('cantidad') is-invalid @enderror"
-                                    name="cantidad" value="{{ old('cantidad') }}" required autocomplete="cantidad">
+                                    name="cantidad" value="{{ old('cantidad') }}" autocomplete="cantidad">
 
                                 @error('cantidad')
                                 <span class="invalid-feedback" role="alert">

@@ -42,23 +42,44 @@ class TrackingsController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'evento' => 'required',
-            'numNominacion' => 'required',
-            'toneladasNominadas' => 'required',
-            'almacenDestino' => 'required',
-            'placaCabezote' => 'required',
-            'numContainer' => 'required',
-            'cantidad' => 'required',
+            'evento' => 'required|min:5|max:50',
+            'numNominacion' => 'required|min:1|exists:nominaciones,id',
+            'toneladasNominadas' => 'min:1|nullable',
+            'almacenDestino' => 'min:1|nullable',
+            'placaCabezote' => 'string|min:7|max:7|nullable',
+            'numContainer' => 'string|min:12|max:12|nullable',
+            'cantidad' => 'min:1|nullable',
         ]);
 
         $trackings = new Trackings();
         $trackings->evento = $validatedData['evento'];
         $trackings->numNominacion = $validatedData['numNominacion'];
-        $trackings->toneladasNominadas  = $validatedData['toneladasNominadas'];
-        $trackings->almacenDestino = $validatedData['almacenDestino'];
-        $trackings->placaCabezote = $validatedData['placaCabezote'];
-        $trackings->numContainer = $validatedData['numContainer'];
-        $trackings->cantidad = $validatedData['cantidad'];
+        if(isset($validatedData["toneladasNominadas"])){
+            $trackings->toneladasNominadas = $validatedData['toneladasNominadas'];
+        } else{
+            $trackings->toneladasNominadas = NULL;
+        }
+        if(isset($validatedData["almacenDestino"])){
+            $trackings->almacenDestino = $validatedData['almacenDestino'];
+        } else{
+            $trackings->almacenDestino = NULL;
+        }
+        if(isset($validatedData["placaCabezote"])){
+            $trackings->placaCabezote = $validatedData['placaCabezote'];
+        } else{
+            $trackings->placaCabezote = NULL;
+        }
+        if(isset($validatedData["numContainer"])){
+            $trackings->numContainer = $validatedData['numContainer'];
+        } else{
+            $trackings->numContainer = NULL;
+        }
+        if(isset($validatedData["cantidad"])){
+            $trackings->cantidad = $validatedData['cantidad'];
+        } else{
+            $trackings->cantidad = NULL;
+        }
+        
         
         $trackings->save(); //Insertar
 
@@ -102,23 +123,45 @@ class TrackingsController extends Controller
         //$this->authorize('update', $tracking);
 
         $validatedData = $request->validate([
-            'evento' => 'required',
-            'numNominacion' => 'required',
-            'toneladasNominadas' => 'required',
-            'almacenDestino' => 'required',
-            'placaCabezote' => 'required',
-            'numContainer' => 'required',
-            'cantidad' => 'required',
+            'evento' => 'required|min:5|max:50',
+            'numNominacion' => 'required|min:1|exists:nominaciones,id',
+            'toneladasNominadas' => 'min:1|nullable',
+            'almacenDestino' => 'min:1|nullable',
+            'placaCabezote' => 'string|min:7|max:7|nullable',
+            'numContainer' => 'string|min:12|max:12|nullable',
+            'cantidad' => 'min:1|nullable',
+            'observacion' => 'min:8|required|string',
         ]);
 
         $tracking->evento = $validatedData['evento'];
         $tracking->numNominacion = $validatedData['numNominacion'];
-        $tracking->toneladasNominadas  = $validatedData['toneladasNominadas'];
-        $tracking->almacenDestino = $validatedData['almacenDestino'];
-        $tracking->placaCabezote = $validatedData['placaCabezote'];
-        $tracking->numContainer = $validatedData['numContainer'];
-        $tracking->cantidad = $validatedData['cantidad'];
-        
+        if(isset($validatedData["toneladasNominadas"])){
+            $tracking->toneladasNominadas = $validatedData['toneladasNominadas'];
+        } else{
+            $tracking->toneladasNominadas = NULL;
+        }
+        if(isset($validatedData["almacenDestino"])){
+            $tracking->almacenDestino = $validatedData['almacenDestino'];
+        } else{
+            $tracking->almacenDestino = NULL;
+        }
+        if(isset($validatedData["placaCabezote"])){
+            $tracking->placaCabezote = $validatedData['placaCabezote'];
+        } else{
+            $tracking->placaCabezote = NULL;
+        }
+        if(isset($validatedData["numContainer"])){
+            $tracking->numContainer = $validatedData['numContainer'];
+        } else{
+            $tracking->numContainer = NULL;
+        }
+        if(isset($validatedData["cantidad"])){
+            $tracking->cantidad = $validatedData['cantidad'];
+        } else{
+            $tracking->cantidad = NULL;
+        }
+        $tracking->observacion = $validatedData['observacion'];
+
         $tracking->save(); //Actualizar
 
         $status = 'El evento ha sido actualizado exitosamente.';

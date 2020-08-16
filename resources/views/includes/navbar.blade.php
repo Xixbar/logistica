@@ -25,6 +25,11 @@
                                 {{Request::is('trackings/{tracking}') ? 'active' : ''}} {{Request::is('trackings/{tracking}/edit') ? 'active' : ''}}" 
                                 href="{{ url('/trackings') }}">{{ __('Tracking') }}</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link {{Request::is('ingenios') ? 'active' : ''}} {{Request::is('ingenios/create') ? 'active' : ''}}
+                                {{Request::is('ingenios/{ingenio}') ? 'active' : ''}} {{Request::is('ingenios/{ingenio}/edit') ? 'active' : ''}}" 
+                                href="{{ url('/ingenios') }}">{{ __('Ingenios') }}</a>
+                            </li>
                             
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

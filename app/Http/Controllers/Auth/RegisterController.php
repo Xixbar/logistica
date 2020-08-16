@@ -51,21 +51,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'cedula' => ['unique:users','nullable'],
-            'nit' => ['unique:users','nullable'],
-            'nombre' => ['required', 'string'],
-            'direccion' => ['required', 'string'],
-            'ciudad' => ['required', 'string'],
-            'correoPersonal' => ['string', 'email', 'unique:users','nullable'],
+            'cedula' => ['min:10','max:10','unique:users','nullable'],
+            'nit' => ['min:11','max:11','unique:users','nullable'],
+            'nombre' => ['min:5','required', 'string'],
+            'direccion' => ['min:10','required', 'string'],
+            'ciudad' => ['min:4','required', 'string'],
+            'correoIngreso' => ['string', 'email', 'unique:users'],
             'correoEmpresarial' => [ 'string', 'email','nullable'],
-            'email1' => ['string', 'email', 'unique:users','nullable'],
             'email2' => ['string', 'email', 'unique:users','nullable'],
-            'telefono' => ['required', 'string'],
-            'seguridadSocial1' => ['string','nullable'],
-            'seguridadSocial2' => ['string','nullable'],
-            'seguridadSocial3' => ['string','nullable'],
-            'tipoSangre' => ['string','nullable'],
-            'pais' => ['string','nullable'],
+            'telefono' => ['min:7','required', 'string'],
+            'seguridadSocial1' => ['min:7','string','nullable'],
+            'seguridadSocial2' => ['min:7','string','nullable'],
+            'seguridadSocial3' => ['min:7','string','nullable'],
+            'tipoSangre' => ['min:7','max:3','string','nullable'],
+            'pais' => ['min:4','string','nullable'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -77,32 +76,11 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {/*
-        return User::create([
-            
-            'cedula' => isset($data['cedula'])?'cedula': NULL,
-            'nit' => isset($data['nit'])?'nit': NULL,
-            'nombre' => $data['nombre'],
-            'direccion' => $data['direccion'],
-            'ciudad' => $data['ciudad'],
-            'correoPersonal' => isset($data['correoPersonal'])?'correoPersonal': NULL,
-            'correoEmpresarial' => isset($data['correoEmpresarial'])?'correoEmpresarial': NULL,
-            'email1' => isset($data['email1'])?'email1': NULL,
-            'email2' => isset($data['email2'])?'email2': NULL,
-            'telefono' => $data['telefono'],
-            'seguridadSocial1' => isset($data['seguridadSocial1'])?'seguridadSocial1': NULL,
-            'seguridadSocial2' => isset($data['seguridadSocial2'])?'seguridadSocial2': NULL,
-            'seguridadSocial3' => isset($data['seguridadSocial3'])?'seguridadSocial3': NULL,
-            'tipoSangre' => isset($data['tipoSangre'])?'tipoSangre': NULL,
-            'pais' => isset($data['pais'])?'pais': NULL,
-            'password' => Hash::make($data['password']),
-        ]);
-*/
-
+    {
         $usuario = new User();
 
         if(isset($data["cedula"])){
-            $usuario->cedula = $data["celuda"];  
+            $usuario->cedula = $data["cedula"];  
         } else{
             $usuario->cedula = NULL;
         }
@@ -115,27 +93,18 @@ class RegisterController extends Controller
         $usuario->nombre = $data['nombre'];
         $usuario->direccion = $data['direccion'];
         $usuario->ciudad = $data['ciudad'];
+        $usuario->correoIngreso = $data['correoIngreso'];
 
-        if(isset($data["correoPersonal"])){
-            $usuario->correoPersonal = $data['correoPersonal'];
-        } else{
-            $usuario->correoPersonal = NULL;
-        } 
         if(isset($data["correoEmpresarial"])){
             $usuario->correoEmpresarial = $data['correoEmpresarial'];
         } else{
             $usuario->correoEmpresarial = NULL;
         } 
-        if(isset($data["email1"])){
-            $usuario->email1 = $data['email1'];
-        } else{
-            $usuario->email1 = NULL;
-        } 
         if(isset($data["email2"])){
             $usuario->email2 = $data['email2'];
         } else{
             $usuario->email2 = NULL;
-        }
+        } 
 
         $usuario->telefono = $data['telefono'];
 
@@ -169,25 +138,6 @@ class RegisterController extends Controller
 
         $usuario->save();
 
-        /*
-        return $usuario::create([
-            'cedula' => $usuario['cedula'],
-            'nit' => $usuario['nit'],
-            'nombre' => $usuario['nombre'],
-            'direccion' => $usuario['direccion'],
-            'ciudad' => $usuario['ciudad'],
-            'correoPersonal' => $usuario['correoPersonal'],
-            'correoEmpresarial' => $usuario['correoEmpresarial'],
-            'email1' => $usuario['email1'],
-            'email2' => $usuario['email2'],
-            'telefono' => $usuario['telefono'],
-            'seguridadSocial1' => $usuario['seguridadSocial1'],
-            'seguridadSocial2' => $usuario['seguridadSocial2'],
-            'seguridadSocial3' => $usuario['seguridadSocial3'],
-            'tipoSangre' => $usuario['tipoSangre'],
-            'pais' => $usuario['pais'],
-            'password' => $usuario['password'],
-        ]);
-        */
+        return $usuario;
      }
 }

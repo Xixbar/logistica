@@ -19,11 +19,12 @@ class CreateTrackingsTable extends Migration
             $table->string('evento');
             $table->unsignedBigInteger('numNominacion');
             $table->foreign('numNominacion')->references('id')->on('nominaciones');
-            $table->string('toneladasNominadas');
-            $table->string('placaCabezote');
-            $table->string('almacenDestino');
-            $table->string('numContainer');
-            $table->string('cantidad');
+            $table->string('toneladasNominadas')->nullable();
+            $table->string('placaCabezote')->nullable();
+            $table->string('almacenDestino')->nullable();
+            $table->string('numContainer')->nullable();
+            $table->string('cantidad')->nullable();
+            $table->string('observacion')->nullable();
 
             $table->timestamps();
         });

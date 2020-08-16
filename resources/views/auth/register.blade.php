@@ -60,10 +60,10 @@
             
                         <div class="form-group row">
                             <div class="col-md-6">
-                                <label for="correoPersonal">{{ __('Correo personal') }}</label>
-                                <input id="correoPersonal" type="email" class="form-control @error('correoPersonal') is-invalid @enderror" name="correoPersonal" value="{{ old('correoPersonal') }}" required autocomplete="correoPersonal" autofocus>
+                                <label for="correoIngreso">{{ __('Correo ingreso/Correo personal') }}</label>
+                                <input id="correoIngreso" type="email" class="form-control @error('correoIngreso') is-invalid @enderror" name="correoIngreso" value="{{ old('correoIngreso') }}" required autocomplete="correoIngreso" autofocus>
             
-                                @error('correoPersonal')
+                                @error('correoIngreso')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -224,10 +224,10 @@
             
                         <div class="form-group row">
                             <div class="col-md-6">
-                                <label for="email1">{{ __('Correo electrónico 1') }}</label>
-                                <input id="email1" type="email" class="form-control @error('email1') is-invalid @enderror" name="email1" value="{{ old('email1') }}" required autocomplete="email1" autofocus>
+                                <label for="correoIngreso">{{ __('Correo ingreso') }}</label>
+                                <input id="correoIngreso" type="email" class="form-control @error('correoIngreso') is-invalid @enderror" name="correoIngreso" value="{{ old('correoIngreso') }}" required autocomplete="correoIngreso" autofocus>
             
-                                @error('email1')
+                                @error('correoIngreso')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

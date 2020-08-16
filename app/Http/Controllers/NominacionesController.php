@@ -42,9 +42,9 @@ class NominacionesController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'clienteVendedor' => 'required',
-            'clienteComprador' => 'required',
-            'numContrato' => 'required',
+            'clienteVendedor' => 'required|min:11|max:11|exists:users,nit',
+            'clienteComprador' => 'required|min:11|max:11|exists:users,nit',
+            'numContrato' => 'required|exists:contratos,id',
             'producto' => 'required',
             'eta' => 'required',
             'cutOff' => 'required',
@@ -56,9 +56,9 @@ class NominacionesController extends Controller
             'numContainer' => 'required',
             'tmContainer' => 'required',
             'unidadesContainer' => 'required',
-            'toneladas' => 'required',
-            'supervision' => 'required',
-            'tipoContainer' => 'required',
+            'toneladas' => 'string','nullable',
+            'supervision' => 'string','nullable',
+            'tipoContainer' => 'string','nullable',
         ]);
 
         $nominaciones = new Nominaciones();
@@ -79,10 +79,22 @@ class NominacionesController extends Controller
         $nominaciones->toneladas = $validatedData['toneladas'];
         $nominaciones->supervision = $validatedData['supervision'];
         $nominaciones->tipoContainer = $validatedData['tipoContainer'];
-        $nominaciones->instrucciones1 = $validatedData['instrucciones1'];
-        $nominaciones->instrucciones2 = $validatedData['instrucciones2'];
-        $nominaciones->instrucciones3 = $validatedData['instrucciones3'];
-        
+        if(isset($validatedData["instrucciones1"])){
+            $nominaciones->instrucciones1 = $validatedData['instrucciones1'];
+        } else{
+            $nominaciones->instrucciones1 = NULL;
+        } 
+        if(isset($validatedData["instrucciones2"])){
+            $nominaciones->instrucciones2 = $validatedData['instrucciones2'];
+        } else{
+            $nominaciones->instrucciones2 = NULL;
+        } 
+        if(isset($validatedData["instrucciones3"])){
+            $nominaciones->instrucciones3 = $validatedData['instrucciones3'];
+        } else{
+            $nominaciones->instrucciones3 = NULL;
+        } 
+
         $nominaciones->save(); //Insertar
 
         $status = 'La nominación ha sido realizada exitosamente.';
@@ -108,7 +120,7 @@ class NominacionesController extends Controller
      */
     public function edit(Nominaciones $nominacion)
     {
-        $this->authorize('update', $nominacion);
+       //$this->authorize('update', $nominacion);
 
         return view('nominaciones.edit', compact('nominacion'));
     }
@@ -122,12 +134,12 @@ class NominacionesController extends Controller
      */
     public function update(Request $request, Nominaciones $nominacion)
     {
-        $this->authorize('update', $nominacion);
+        //$this->authorize('update', $nominacion);
 
         $validatedData = $request->validate([
-            'clienteVendedor' => 'required',
-            'clienteComprador' => 'required',
-            'numContrato' => 'required',
+            'clienteVendedor' => 'required|min:11|max:11|exists:users,nit',
+            'clienteComprador' => 'required|min:11|max:11|exists:users,nit',
+            'numContrato' => 'required|exists:contratos,id',
             'producto' => 'required',
             'eta' => 'required',
             'cutOff' => 'required',
@@ -139,9 +151,10 @@ class NominacionesController extends Controller
             'numContainer' => 'required',
             'tmContainer' => 'required',
             'unidadesContainer' => 'required',
-            'toneladas' => 'required',
-            'supervision' => 'required',
-            'tipoContainer' => 'required',
+            'toneladas' => 'string','nullable',
+            'supervision' => 'string','nullable',
+            'tipoContainer' => 'string','nullable',
+            'observacion' => 'min:8|required|string',
         ]);
 
         $nominacion->clienteVendedor = $validatedData['clienteVendedor'];
@@ -161,10 +174,23 @@ class NominacionesController extends Controller
         $nominacion->toneladas = $validatedData['toneladas'];
         $nominacion->supervision = $validatedData['supervision'];
         $nominacion->tipoContainer = $validatedData['tipoContainer'];
-        $nominacion->instrucciones1 = $validatedData['instrucciones1'];
-        $nominacion->instrucciones2 = $validatedData['instrucciones2'];
-        $nominacion->instrucciones3 = $validatedData['instrucciones3'];
-        
+        if(isset($validatedData["instrucciones1"])){
+            $nominacion->instrucciones1 = $validatedData['instrucciones1'];
+        } else{
+            $nominacion->instrucciones1 = NULL;
+        } 
+        if(isset($validatedData["instrucciones2"])){
+            $nominacion->instrucciones2 = $validatedData['instrucciones2'];
+        } else{
+            $nominacion->instrucciones2 = NULL;
+        } 
+        if(isset($validatedData["instrucciones3"])){
+            $nominacion->instrucciones3 = $validatedData['instrucciones3'];
+        } else{
+            $nominacion->instrucciones3 = NULL;
+        } 
+        $nominacion->observacion = $validatedData['observacion'];
+
         $nominacion->save(); //Actualizar
 
         $status = 'La nominación ha sido actualizada exitosamente.';

@@ -24,6 +24,9 @@
         </div>
 
         <div class="card-body">
+        @if ($nominaciones->isEmpty())             
+          <p>Aún no se ha registrado ninguna nominación</p>              
+        @else
           <table class="table table-responsive" >
             <thead>
             <tr class="d-flex">
@@ -81,6 +84,7 @@
               @endforeach
             </tbody>
           </table>
+        @endif
         </div>
       </div>
     </div>

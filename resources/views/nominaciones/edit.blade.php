@@ -287,6 +287,19 @@
                             </span>
                             @enderror
                         </div>
+                        
+                        <div class="form-group">
+                            <label for="observacion">Observación de edición</label>
+
+                            <textarea id="observacion" class="form-control @error('observacion') is-invalid @enderror"
+                                name="observacion" value="{{ old('observacion') }}" rows="2" required autocomplete="observacion"></textarea>
+
+                            @error('observacion')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
 
                         <button type="submit" class="btn btn-primary">Completar</button>
                         <a href={{ url('nominaciones') }} class="btn btn-danger ml-4">Regresar</a>

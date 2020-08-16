@@ -8,6 +8,6 @@ class Trackings extends Model
 {
     protected $fillable = [ 'evento ', 'numNominacion ', 'toneladasNominadas',
                             'almacenDestino', 'placaCabezote', 'numContainer ',
-                            'cantidad'
+                            'cantidad', 'observacion',
     ];
 }

@@ -19,9 +19,11 @@ class ContratosController extends Controller
      */
     public function index()
     {
-        $contratos = Contratos::where('nitCliente')
-                                ->orWhere('nitVendedor', 'John')
-                                ->get();
+        //$contratos = Contratos::where('nitCliente')
+        //                       ->orWhere('nitVendedor')
+         //                       ->get();
+        $contratos = Contratos::all();
+
         return view('contratos.index', compact('contratos'));
     }
 
@@ -44,10 +46,10 @@ class ContratosController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'nitCliente' => 'required|min:11',
-            'nombreCliente' => 'required',
-            'nitVendedor ' => 'required|min:11',
-            'empresaVendedora' => 'required',
+            'nitCliente' => 'required|min:11|max:11|exists:users,nit',
+            'nombreCliente' => 'required|min:5',
+            'nitVendedor' => 'required|min:11|max:11|exists:users,nit',
+            'empresaVendedora' => 'required|min:5',
             'mesEntrega' => 'required',
             'toneladas' => 'required',
             'tasaCambio' => 'required',
@@ -55,8 +57,8 @@ class ContratosController extends Controller
             'prima' => 'required',
             'tipoProducto' => 'required',
             'producto' => 'required',
-            'paisDestino' => 'required',
-            'terminoIncoterm' => 'required'
+            'paisDestino' => 'required|min:4',
+            'terminoIncoterm' => 'required',
         ]);
 
         $contratos = new Contratos();
@@ -86,9 +88,9 @@ class ContratosController extends Controller
      * @param  \App\Contratos  $contratos
      * @return \Illuminate\Http\Response
      */
-    public function show(Contratos $contratos)
+    public function show(Contratos $contrato)
     {
-        return view('contratos.show', compact('contratos'));
+        return view('contratos.show', compact('contrato'));
     }
 
     /**
@@ -99,9 +101,9 @@ class ContratosController extends Controller
      */
     public function edit(Contratos $contrato)
     {
-        $this->authorize('update', $contrato);
+        //$this->authorize('update', $contrato);
 
-        return view('contratos.edit', compact('contratos'));
+        return view('contratos.edit', compact('contrato'));
     }
 
     /**
@@ -113,13 +115,13 @@ class ContratosController extends Controller
      */
     public function update(Request $request, Contratos $contrato)
     {
-        $this->authorize('update', $contrato);
+        //$this->authorize('update', $contrato);
 
         $validatedData = $request->validate([
-            'nitCliente' => 'required|min:11',
-            'nombreCliente' => 'required',
-            'nitVendedor ' => 'required|min:11',
-            'empresaVendedora' => 'required',
+            'nitCliente' => 'required|min:11|max:11|exists:users,nit',
+            'nombreCliente' => 'required|min:5',
+            'nitVendedor' => 'required|min:11|max:11|exists:users,nit',
+            'empresaVendedora' => 'required|min:5',
             'mesEntrega' => 'required',
             'toneladas' => 'required',
             'tasaCambio' => 'required',
@@ -127,8 +129,9 @@ class ContratosController extends Controller
             'prima' => 'required',
             'tipoProducto' => 'required',
             'producto' => 'required',
-            'paisDestino' => 'required',
-            'terminoIncoterm' => 'required'
+            'paisDestino' => 'required|min:4',
+            'terminoIncoterm' => 'required',
+            'observacion' => 'min:8|required|string',
         ]);
 
         $contrato->nitCliente = $validatedData['nitCliente'];
@@ -144,6 +147,7 @@ class ContratosController extends Controller
         $contrato->producto = $validatedData['producto'];
         $contrato->paisDestino = $validatedData['paisDestino'];
         $contrato->terminoIncoterm = $validatedData['terminoIncoterm'];
+        $contrato->observacion = $validatedData['observacion'];
         
         $contrato->save(); //Actualizar
 
