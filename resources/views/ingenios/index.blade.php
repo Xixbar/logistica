@@ -33,7 +33,7 @@
               <th class="col-sm-2">Fecha</th>
               <th class="col-sm-2">Hora</th>
               <th class="col-sm-2">Evento</th>
-              <th class="col-sm-2">Número de nominacion</th>
+              <th class="col-sm-2">Número de nominación</th>
               <th class="col-sm-2">Ingenio</th>
               <th class="col-sm-2">Bodega</th>
               <th class="col-sm-2">Número de contenedor</th>
@@ -96,11 +96,20 @@
           </table>
 
           <div>
-              @foreach ($ingenios as $ingenio)
-              <p>Para el formulario con número de nominación: {{$ingenio->numNominacion}}</p>
-              <p>Se hicieron las siguientes ediciones:</p>
-              <p>{{$ingenio->observacion}}</p>
-              @endforeach
+            <h4>Historial de cambios</h4>
+            @foreach ($ingenios as $ingenio)        
+              @if (is_null($ingenio->observacion))
+              <div class="alert alert-primary" role="alert">
+              <strong>No se han registrado cambios ó ediciones para el registro con número de nominación: {{$ingenio->numNominacion}}</strong> 
+              </div>
+              @else
+              <div class="alert alert-primary" role="alert">
+                <strong>Para el formato con número de nominación: {{$ingenio->numNominacion}}</strong>
+                <hr>
+                <strong class="mb-0">Se realizaron las siguientes ediciones: {{$ingenio->observacion}}</strong>
+              </div>
+              @endif
+            @endforeach
           </div>
 
         @endif  

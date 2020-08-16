@@ -52,7 +52,7 @@
                         
                         <div class="form-row">  
                             <div class="col-md-6 mb-3">
-                                <label for="numNominacion">Numero de nominación</label>
+                                <label for="numNominacion">Número de nominación</label>
 
                                 <input id="numNominacion" type="text" class="form-control @error('numNominacion') is-invalid @enderror"
                                     name="numNominacion" value="{{ old('numNominacion') }}" required autocomplete="numNominacion">
@@ -108,7 +108,7 @@
 
                         <div class="form-row">                         
                             <div class="col-md-6 mb-3">
-                                <label for="placaVehiculo">Placa del vehiculo</label>
+                                <label for="placaVehiculo">Placa del vehículo</label>
 
                                 <input id="placaVehiculo" type="text" class="form-control @error('placaVehiculo') is-invalid @enderror"
                                     name="placaVehiculo" value="{{ old('placaVehiculo') }}" required autocomplete="placaVehiculo">
@@ -136,7 +136,7 @@
 
                         <div class="form-row">                         
                             <div class="col-md-6 mb-3">
-                                <label for="ccConductor">Cedula del conductor</label>
+                                <label for="ccConductor">Cédula del conductor</label>
 
                                 <input id="ccConductor" type="text" class="form-control @error('ccConductor') is-invalid @enderror"
                                     name="ccConductor" value="{{ old('ccConductor') }}" required autocomplete="ccConductor">

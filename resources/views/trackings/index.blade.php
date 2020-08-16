@@ -25,18 +25,18 @@
 
         <div class="card-body">
         @if ($trackings->isEmpty())            
-          <p>Aún no se ha añadido ningun evento</p>              
+          <p>Aún no se ha añadido ningún evento.</p>              
         @else
           <table class="table table-responsive" >
             <thead>
             <tr class="d-flex">
               <th class="col-sm-2">Fecha</th>
               <th class="col-sm-2">Evento</th>
-              <th class="col-sm-2">Numero de nominación</th>
+              <th class="col-sm-2">Número de nominación</th>
               <th class="col-sm-2">Toneladas nominadas</th>
               <th class="col-sm-2">Almacen de destino</th>
               <th class="col-sm-2">Placa de cabezote</th>
-              <th class="col-sm-2">Numero de contenedor</th>
+              <th class="col-sm-2">Número de contenedor</th>
               <th class="col-sm-2">Cantidad</th>
               <th class="col-sm-2">Acciones</th>
             </tr>
@@ -64,6 +64,22 @@
               @endforeach
             </tbody>
           </table>
+
+          <div>
+            <h4>Historial de cambios</h4>
+            @foreach ($trackings as $tracking)
+              @if(is_null($tracking->observacion))
+              @else 
+              <div class="alert alert-primary" role="alert">
+                <strong>Para el evento: {{$tracking->evento}}, pertenciente a la nominación: {{$tracking->numNominacion}}, se realizaron las siguientes ediciones: </strong>
+                <hr>
+                <strong class="mb-0">{{$tracking->observacion}}.</strong>
+              </div>
+              @endif
+            @endforeach
+          </div>
+    
+        </div>
         @endif  
         </div>
       </div>

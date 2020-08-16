@@ -56,9 +56,12 @@ class NominacionesController extends Controller
             'numContainer' => 'required',
             'tmContainer' => 'required',
             'unidadesContainer' => 'required',
-            'toneladas' => 'string','nullable',
-            'supervision' => 'string','nullable',
-            'tipoContainer' => 'string','nullable',
+            'toneladas' => 'required',
+            'supervision' => 'required',
+            'tipoContainer' => 'required',
+            'instrucciones1' => 'min:10|max:300|nullable',
+            'instrucciones2' => 'min:10|max:300|nullable',
+            'instrucciones3' => 'min:10|max:300|nullable',
         ]);
 
         $nominaciones = new Nominaciones();
@@ -151,9 +154,12 @@ class NominacionesController extends Controller
             'numContainer' => 'required',
             'tmContainer' => 'required',
             'unidadesContainer' => 'required',
-            'toneladas' => 'string','nullable',
-            'supervision' => 'string','nullable',
-            'tipoContainer' => 'string','nullable',
+            'toneladas' => 'required',
+            'supervision' => 'required',
+            'tipoContainer' => 'required',
+            'instrucciones1' => 'min:10|max:300|nullable',
+            'instrucciones2' => 'min:10|max:300|nullable',
+            'instrucciones3' => 'min:10|max:300|nullable',
             'observacion' => 'min:8|required|string',
         ]);
 

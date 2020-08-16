@@ -31,7 +31,7 @@ class CreateContratosTable extends Migration
             $table->string('producto');
             $table->string('paisDestino');
             $table->string('terminoIncoterm');
-            $table->string('observacion')->nullable();
+            $table->text('observacion')->nullable();
             
             $table->timestamps();
         });

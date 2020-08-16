@@ -28,7 +28,7 @@
                         
                         <div class="form-row">  
                             <div class="col-md-6 mb-3">
-                                <label for="numNominacion">Numero de nominación</label>
+                                <label for="numNominacion">Número de nominación</label>
 
                                 <input id="numNominacion" type="text" class="form-control @error('numNominacion') is-invalid @enderror"
                                     name="numNominacion" value="{{ old('numNominacion') }}" required autocomplete="numNominacion">
@@ -83,7 +83,7 @@
 
                         <div class="form-row">                         
                             <div class="col-md-6 mb-3">
-                                <label for="numContainer">Numero de contenedor</label>
+                                <label for="numContainer">Número de contenedor</label>
 
                                 <input id="numContainer" type="text" class="form-control @error('numContainer') is-invalid @enderror"
                                     name="numContainer" value="{{ old('numContainer') }}" autocomplete="numContainer">

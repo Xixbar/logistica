@@ -120,7 +120,7 @@
                             <label for="observacion">Observación de edición</label>
 
                             <textarea id="observacion" class="form-control @error('observacion') is-invalid @enderror"
-                                name="observacion" value="{{ old('observacion') }}" rows="2" required autocomplete="observacion"></textarea>
+                            name="observacion" rows="2">{{ old('observacion', $tracking->observacion) }}</textarea>
 
                             @error('observacion')
                             <span class="invalid-feedback" role="alert">

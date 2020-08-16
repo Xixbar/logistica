@@ -40,7 +40,7 @@ class CreateIngeniosTable extends Migration
             $table->time('horaFin');
             $table->date('fechaSalida');
             $table->time('horaSalida');
-            $table->string('observacion')->nullable();
+            $table->text('observacion')->nullable();
             
             $table->timestamps();
         });

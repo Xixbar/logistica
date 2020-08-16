@@ -25,7 +25,7 @@
         
         <div class="card-body">
         @if ($contratos->isEmpty())             
-          <p>Aún no se ha registrado ninguna contrato</p>              
+          <p>Aún no se ha registrado ningún contrato.</p>              
         @else
           <table class="table table-responsive" >
             <thead>
@@ -78,6 +78,24 @@
               @endforeach
             </tbody>
           </table>
+
+          <div>
+            <h4>Historial de cambios</h4>
+            @foreach ($contratos as $contrato)        
+              @if (is_null($contrato->observacion))
+              <div class="alert alert-primary" role="alert">
+              <strong>No se han registrado cambios ó ediciones para el registro con número de contrato: {{$contrato->id}}</strong> 
+              </div>
+              @else
+              <div class="alert alert-primary" role="alert">
+                <strong>Para el contrato con número de identificación: {{$contrato->id}}</strong>
+                <hr>
+                <strong class="mb-0">Se realizaron las siguientes ediciones: {{$contrato->observacion}}</strong>
+              </div>
+              @endif
+            @endforeach
+          </div>
+          
         @endif 
         </div>
       </div>

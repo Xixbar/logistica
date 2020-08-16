@@ -24,7 +24,7 @@ class CreateTrackingsTable extends Migration
             $table->string('almacenDestino')->nullable();
             $table->string('numContainer')->nullable();
             $table->string('cantidad')->nullable();
-            $table->string('observacion')->nullable();
+            $table->text('observacion')->nullable();
 
             $table->timestamps();
         });

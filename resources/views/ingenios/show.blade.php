@@ -38,6 +38,10 @@
                         <li>Hora final de embalaje: {{$ingenio->horaFin}}</li>
                         <li>Fecha salida del ingenio: {{$ingenio->fechaSalida}}</li>
                         <li>Hora salida del ingenio: {{$ingenio->horaSalida}}</li>
+                        @if (!is_null($ingenio->observacion))
+                           <li>Observación de edición: </li> 
+                            <p>{{$ingenio->observacion}}</p>
+                        @endif
                     </ul>
 
                     <a href="{{ url('ingenios/'.$ingenio->id.'/edit') }}" class="btn btn-primary">

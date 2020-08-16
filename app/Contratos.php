@@ -10,6 +10,7 @@ class Contratos extends Model
                                 'prima', 'tipoProducto', 'producto', 'paisDestino', 'terminoIncoterm','observacion'];
     // $contrato->user
     // Contrato N - 1 User
+    
     /* public function user()
     {
         return $this->belongsTo(User::class);

@@ -30,7 +30,7 @@
           <table class="table table-responsive" >
             <thead>
             <tr class="d-flex">
-              <th class="col-sm-2">Numero de nominación</th>
+              <th class="col-sm-2">Número de nominación</th>
               <th class="col-sm-2">Fecha de nominación</th>
               <th class="col-sm-2">Cliente vendedor</th>
               <th class="col-sm-2">Cliente comprador</th>
@@ -42,7 +42,7 @@
               <th class="col-sm-2">Viaje</th>
               <th class="col-sm-2">Booking</th>
               <th class="col-sm-2">Puerto</th>
-              <th class="col-sm-2">Numero de contenedor</th>
+              <th class="col-sm-2">Número de contenedor</th>
               <th class="col-sm-2">TM por contenedor</th>
               <th class="col-sm-2">Unidades por contenedor</th>
               <th class="col-sm-2">Toneladas</th>
@@ -84,6 +84,24 @@
               @endforeach
             </tbody>
           </table>
+
+          <div>
+            <h4>Historial de cambios</h4>
+            @foreach ($nominaciones as $nominacion)        
+              @if (is_null($nominacion->observacion))
+              <div class="alert alert-primary" role="alert">
+              <strong>No se han registrado cambios ó ediciones para el registro con número de nominación: {{$nominacion->id}}</strong> 
+              </div>
+              @else
+              <div class="alert alert-primary" role="alert">
+                <strong>Para la nominación con número de indentificación: {{$nominacion->id}}</strong>
+                <hr>
+                <strong class="mb-0">Se realizaron las siguientes ediciones: {{$nominacion->observacion}}</strong>
+              </div>
+              @endif
+            @endforeach
+          </div>
+
         @endif
         </div>
       </div>

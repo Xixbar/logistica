@@ -148,11 +148,11 @@
                                 <label for="tipoProducto">Tipo de producto</label>
 
                                 <select id="tipoProducto" type="custom-select" class="form-control @error('tipoProducto') is-invalid @enderror"
-                                    name="tipoProducto" value="{{ old('tipoProducto', $contrato->tipoProducto) }}" required autocomplete="tipoProducto">
+                                    name="tipoProducto" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option>Azúcar blanco</option>
-                                    <option>Azúcar crudo</option>
-                                    <option>Azúcar refino</option>
+                                    <option value="1" {{ old('tipoProducto', $contrato->tipoProducto) == 1 ? 'selected' : '' }}>Azúcar blanco</option>
+                                    <option value="2" {{ old('tipoProducto', $contrato->tipoProducto) == 2 ? 'selected' : '' }}>Azúcar crudo</option>
+                                    <option value="3" {{ old('tipoProducto', $contrato->tipoProducto) == 3 ? 'selected' : '' }}>Azúcar refino</option>
                                 </select>
 
                                 @error('tipoProducto')
@@ -166,16 +166,16 @@
                                 <label for="producto">Producto</label>
 
                                 <select id="producto" type="custom-select" class="form-control @error('producto') is-invalid @enderror"
-                                    name="producto" value="{{ old('producto', $contrato->producto) }}" required autocomplete="producto">
+                                    name="producto" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option>Grano fino</option>
-                                    <option>Grado 1</option>
-                                    <option>Grado 2</option>
-                                    <option>Tipo A</option>
-                                    <option>Tipo B</option>
-                                    <option>Tipo C</option>
-                                    <option>Crudo</option>
-                                    <option>Orgánico</option>
+                                    <option value="1" {{ old('producto', $contrato->producto) == 1 ? 'selected' : '' }}>Grano fino</option>
+                                    <option value="2" {{ old('producto', $contrato->producto) == 2 ? 'selected' : '' }}>Grado 1</option>
+                                    <option value="3" {{ old('producto', $contrato->producto) == 3 ? 'selected' : '' }}>Grado 2</option>
+                                    <option value="4" {{ old('producto', $contrato->producto) == 4 ? 'selected' : '' }}>Tipo A</option>
+                                    <option value="5" {{ old('producto', $contrato->producto) == 5 ? 'selected' : '' }}>Tipo B</option>
+                                    <option value="6" {{ old('producto', $contrato->producto) == 6 ? 'selected' : '' }}>Tipo C</option>
+                                    <option value="7" {{ old('producto', $contrato->producto) == 7 ? 'selected' : '' }}>Crudo</option>
+                                    <option value="8" {{ old('producto', $contrato->producto) == 8 ? 'selected' : '' }}>Orgánico</option>
                                 </select>
 
                                 @error('producto')
@@ -204,13 +204,13 @@
                                 <label for="terminoIncoterm">Termino Incoterm</label>
 
                                 <select id="terminoIncoterm" type="custom-select" class="form-control @error('terminoIncoterm') is-invalid @enderror"
-                                    name="terminoIncoterm" value="{{ old('terminoIncoterm', $contrato->terminoIncoterm) }}" required autocomplete="terminoIncoterm">
+                                    name="terminoIncoterm" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option>FOB</option>
-                                    <option>FCA</option>
-                                    <option>CIF</option>
-                                    <option>CFR</option>
-                                    <option>EXWORK</option>
+                                    <option value="1" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 1 ? 'selected' : '' }}>FOB</option>
+                                    <option value="2" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 2 ? 'selected' : '' }}>FCA</option>
+                                    <option value="3" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 3 ? 'selected' : '' }}>CIF</option>
+                                    <option value="4" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 4 ? 'selected' : '' }}>CFR</option>
+                                    <option value="5" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 5 ? 'selected' : '' }}>EXWORK</option>
                                 </select>
                                 
                                 @error('terminoIncoterm')
@@ -225,7 +225,7 @@
                             <label for="observacion">Observación de edición</label>
 
                             <textarea id="observacion" class="form-control @error('observacion') is-invalid @enderror"
-                                name="observacion" value="{{ old('observacion') }}" rows="2" required autocomplete="observacion"></textarea>
+                                name="observacion" rows="2">{{ old('observacion', $contrato->observacion) }}</textarea>
 
                             @error('observacion')
                             <span class="invalid-feedback" role="alert">

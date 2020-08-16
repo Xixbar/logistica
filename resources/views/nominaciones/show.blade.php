@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Información de nominación número: {{ $nominacion->id }}</div>
+                <div class="card-header">Información de la nominación número: {{ $nominacion->id }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -33,10 +33,14 @@
                         <li>Toneladas: {{$nominacion->toneladas}}</li>
                         <li>Supervisión: {{$nominacion->supervision}}</li>
                         <li>Tipo de contenedor: {{$nominacion->tipoContainer}}</li>
+                        @if (!is_null($nominacion->observacion))
+                           <li>Observación de edición: </li> 
+                            <p>{{$nominacion->observacion}}</p>
+                        @endif
                     </ul>
 
                     <a href="{{ url('nominaciones/'.$nominacion->id.'/edit') }}" class="btn btn-primary">
-                        Editar evento
+                        Editar nominación
                     </a>
                     <a href={{ url('nominaciones') }} class="btn btn-danger ml-4">Regresar</a>
                 </div>

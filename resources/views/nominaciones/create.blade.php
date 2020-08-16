@@ -40,7 +40,7 @@
                         
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
-                                <label for="numContrato">Numero de contrato</label>
+                                <label for="numContrato">Número de contrato</label>
 
                                 <input id="numContrato" type="text" class="form-control @error('numContrato') is-invalid @enderror"
                                     name="numContrato" value="{{ old('numContrato') }}" required autocomplete="numContrato">
@@ -163,7 +163,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-3 mb-3">
-                                <label for="numContainer">Numero de contenedor</label>
+                                <label for="numContainer">Número de contenedor</label>
 
                                 <input id="numContainer" type="text" class="form-control @error('numContainer') is-invalid @enderror"
                                     name="numContainer" value="{{ old('numContainer') }}" required autocomplete="numContainer">
@@ -246,7 +246,7 @@
                             <label for="instrucciones1">Instrucciones especiales 1</label>
 
                             <textarea id="instrucciones1" class="form-control @error('instrucciones1') is-invalid @enderror"
-                                name="instrucciones1" value="{{ old('instrucciones1') }}" rows="2" autocomplete="instrucciones1"></textarea>
+                                name="instrucciones1" rows="2">{{ old('instrucciones1') }}</textarea>
 
                             @error('instrucciones1')
                             <span class="invalid-feedback" role="alert">
@@ -259,7 +259,7 @@
                             <label for="instrucciones2">Instrucciones especiales 2</label>
 
                             <textarea id="instrucciones2" class="form-control @error('instrucciones2') is-invalid @enderror"
-                                name="instrucciones2" value="{{ old('instrucciones2') }}" rows="2" autocomplete="instrucciones2"></textarea>
+                                name="instrucciones2" rows="2">{{ old('instrucciones2') }}</textarea>
 
                             @error('instrucciones2')
                             <span class="invalid-feedback" role="alert">
@@ -272,7 +272,7 @@
                             <label for="instrucciones3">Instrucciones especiales 3</label>
 
                             <textarea id="instrucciones3" class="form-control @error('instrucciones3') is-invalid @enderror"
-                                name="instrucciones3" value="{{ old('instrucciones3') }}" rows="2" autocomplete="instrucciones3"></textarea>
+                                name="instrucciones3"  rows="2">{{ old('instrucciones3') }}</textarea>
 
                             @error('instrucciones3')
                             <span class="invalid-feedback" role="alert">

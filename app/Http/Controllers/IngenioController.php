@@ -178,6 +178,7 @@ class IngenioController extends Controller
         $ingenio->horaFin = $validatedData['horaFin'];
         $ingenio->fechaSalida = $validatedData['fechaSalida'];
         $ingenio->horaSalida = $validatedData['horaSalida'];
+        $ingenio->observacion = $validatedData['observacion'];
         
         $ingenio->save(); //Actualizar
 

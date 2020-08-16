@@ -141,11 +141,11 @@
                                 <label for="tipoProducto">Tipo de producto</label>
 
                                 <select id="tipoProducto" type="custom-select" class="form-control @error('tipoProducto') is-invalid @enderror"
-                                    name="tipoProducto" value="{{ old('tipoProducto') }}" required autocomplete="tipoProducto">
+                                    name="tipoProducto" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option>Azúcar blanco</option>
-                                    <option>Azúcar crudo</option>
-                                    <option>Azúcar refino</option>
+                                    <option value="1">Azúcar blanco</option>
+                                    <option value="2">Azúcar crudo</option>
+                                    <option value="3">Azúcar refino</option>
                                 </select>
 
                                 @error('tipoProducto')
@@ -159,16 +159,16 @@
                                 <label for="producto">Producto</label>
 
                                 <select id="producto" type="custom-select" class="form-control @error('producto') is-invalid @enderror"
-                                    name="producto" value="{{ old('producto') }}" required autocomplete="producto">
+                                    name="producto" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option>Grano fino</option>
-                                    <option>Grado 1</option>
-                                    <option>Grado 2</option>
-                                    <option>Tipo A</option>
-                                    <option>Tipo B</option>
-                                    <option>Tipo C</option>
-                                    <option>Crudo</option>
-                                    <option>Orgánico</option>
+                                    <option value=1>Grano fino</option>
+                                    <option value=2>Grado 1</option>
+                                    <option value=3>Grado 2</option>
+                                    <option value=4>Tipo A</option>
+                                    <option value=5>Tipo B</option>
+                                    <option value=6>Tipo C</option>
+                                    <option value=7>Crudo</option>
+                                    <option value=8>Orgánico</option>
                                 </select>
 
                                 @error('producto')
@@ -184,7 +184,7 @@
                                 <label for="paisDestino">Pais de destino</label>
 
                                 <input id="paisDestino" type="text" class="form-control @error('paisDestino') is-invalid @enderror"
-                                    name="paisDestino" value="{{ old('paisDestino') }}" required autocomplete="paisDestino">
+                                    name="paisDestino" required>
 
                                 @error('paisDestino')
                                 <span class="invalid-feedback" role="alert">
@@ -197,13 +197,13 @@
                                 <label for="terminoIncoterm">Termino Incoterm</label>
 
                                 <select id="terminoIncoterm" type="custom-select" class="form-control @error('terminoIncoterm') is-invalid @enderror"
-                                    name="terminoIncoterm" value="{{ old('terminoIncoterm') }}" required autocomplete="terminoIncoterm">
+                                    name="terminoIncoterm" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option>FOB</option>
-                                    <option>FCA</option>
-                                    <option>CIF</option>
-                                    <option>CFR</option>
-                                    <option>EXWORK</option>
+                                    <option value=1>FOB</option>
+                                    <option value=2>FCA</option>
+                                    <option value=3>CIF</option>
+                                    <option value=4>CFR</option>
+                                    <option value=5>EXWORK</option>
                                 </select>
                                 
                                 @error('terminoIncoterm')
