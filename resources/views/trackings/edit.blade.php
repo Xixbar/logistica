@@ -129,7 +129,7 @@
                             @enderror
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">Completar</button>
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
                         <a href={{ url('trackings') }} class="btn btn-danger ml-4">Regresar</a>
                     </form>
                 </div>

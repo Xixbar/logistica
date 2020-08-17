@@ -25,7 +25,7 @@
 
         <div class="card-body">
         @if ($nominaciones->isEmpty())             
-          <p>Aún no se ha registrado ninguna nominación</p>              
+          <p>Aún no se ha registrado ninguna nominación.</p>              
         @else
           <table class="table table-responsive" >
             <thead>

@@ -45,7 +45,7 @@
                     </ul>
 
                     <a href="{{ url('ingenios/'.$ingenio->id.'/edit') }}" class="btn btn-primary">
-                        Editar evento
+                        Editar formulario
                     </a>
                     <a href={{ url('ingenios') }} class="btn btn-danger ml-4">Regresar</a>
                 </div>

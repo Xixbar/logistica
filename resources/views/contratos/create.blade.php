@@ -143,9 +143,9 @@
                                 <select id="tipoProducto" type="custom-select" class="form-control @error('tipoProducto') is-invalid @enderror"
                                     name="tipoProducto" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option value="1">Azúcar blanco</option>
-                                    <option value="2">Azúcar crudo</option>
-                                    <option value="3">Azúcar refino</option>
+                                    <option value="Azúcar blanco">Azúcar blanco</option>
+                                    <option value="Azúcar crudo">Azúcar crudo</option>
+                                    <option value="Azúcar refino">Azúcar refino</option>
                                 </select>
 
                                 @error('tipoProducto')
@@ -161,14 +161,14 @@
                                 <select id="producto" type="custom-select" class="form-control @error('producto') is-invalid @enderror"
                                     name="producto" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option value=1>Grano fino</option>
-                                    <option value=2>Grado 1</option>
-                                    <option value=3>Grado 2</option>
-                                    <option value=4>Tipo A</option>
-                                    <option value=5>Tipo B</option>
-                                    <option value=6>Tipo C</option>
-                                    <option value=7>Crudo</option>
-                                    <option value=8>Orgánico</option>
+                                    <option value='Grano fino'>Grano fino</option>
+                                    <option value='Grado 1'>Grado 1</option>
+                                    <option value='Grado 2'>Grado 2</option>
+                                    <option value='Tipo A'>Tipo A</option>
+                                    <option value='Tipo B'>Tipo B</option>
+                                    <option value='Tipo C'>Tipo C</option>
+                                    <option value='Crudo'>Crudo</option>
+                                    <option value='Orgánico'>Orgánico</option>
                                 </select>
 
                                 @error('producto')
@@ -199,11 +199,11 @@
                                 <select id="terminoIncoterm" type="custom-select" class="form-control @error('terminoIncoterm') is-invalid @enderror"
                                     name="terminoIncoterm" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option value=1>FOB</option>
-                                    <option value=2>FCA</option>
-                                    <option value=3>CIF</option>
-                                    <option value=4>CFR</option>
-                                    <option value=5>EXWORK</option>
+                                    <option value='FOB'>FOB</option>
+                                    <option value='FCA'>FCA</option>
+                                    <option value='CIF'>CIF</option>
+                                    <option value='CFR'>CFR</option>
+                                    <option value='EXWORK'>EXWORK</option>
                                 </select>
                                 
                                 @error('terminoIncoterm')

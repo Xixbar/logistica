@@ -25,7 +25,7 @@
         
         <div class="card-body">
         @if ($ingenios->isEmpty())            
-          <p>Aún no se ha llenado ningún formulario</p>              
+          <p>Aún no se ha registrado ningún formulario.</p>              
         @else
           <table class="table table-responsive" >
             <thead>

@@ -150,9 +150,9 @@
                                 <select id="tipoProducto" type="custom-select" class="form-control @error('tipoProducto') is-invalid @enderror"
                                     name="tipoProducto" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option value="1" {{ old('tipoProducto', $contrato->tipoProducto) == 1 ? 'selected' : '' }}>Azúcar blanco</option>
-                                    <option value="2" {{ old('tipoProducto', $contrato->tipoProducto) == 2 ? 'selected' : '' }}>Azúcar crudo</option>
-                                    <option value="3" {{ old('tipoProducto', $contrato->tipoProducto) == 3 ? 'selected' : '' }}>Azúcar refino</option>
+                                    <option value="Azúcar blanco" {{ old('tipoProducto', $contrato->tipoProducto) == 'Azúcar blanco' ? 'selected' : '' }}>Azúcar blanco</option>
+                                    <option value="Azúcar crudo" {{ old('tipoProducto', $contrato->tipoProducto) == 'Azúcar crudo' ? 'selected' : '' }}>Azúcar crudo</option>
+                                    <option value="Azúcar refino" {{ old('tipoProducto', $contrato->tipoProducto) == 'Azúcar refino' ? 'selected' : '' }}>Azúcar refino</option>
                                 </select>
 
                                 @error('tipoProducto')
@@ -168,14 +168,14 @@
                                 <select id="producto" type="custom-select" class="form-control @error('producto') is-invalid @enderror"
                                     name="producto" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option value="1" {{ old('producto', $contrato->producto) == 1 ? 'selected' : '' }}>Grano fino</option>
-                                    <option value="2" {{ old('producto', $contrato->producto) == 2 ? 'selected' : '' }}>Grado 1</option>
-                                    <option value="3" {{ old('producto', $contrato->producto) == 3 ? 'selected' : '' }}>Grado 2</option>
-                                    <option value="4" {{ old('producto', $contrato->producto) == 4 ? 'selected' : '' }}>Tipo A</option>
-                                    <option value="5" {{ old('producto', $contrato->producto) == 5 ? 'selected' : '' }}>Tipo B</option>
-                                    <option value="6" {{ old('producto', $contrato->producto) == 6 ? 'selected' : '' }}>Tipo C</option>
-                                    <option value="7" {{ old('producto', $contrato->producto) == 7 ? 'selected' : '' }}>Crudo</option>
-                                    <option value="8" {{ old('producto', $contrato->producto) == 8 ? 'selected' : '' }}>Orgánico</option>
+                                    <option value="Grano fino" {{ old('producto', $contrato->producto) == 'Grano fino' ? 'selected' : '' }}>Grano fino</option>
+                                    <option value="Grado 1" {{ old('producto', $contrato->producto) == 'Grado 1' ? 'selected' : '' }}>Grado 1</option>
+                                    <option value="Grado 2" {{ old('producto', $contrato->producto) == 'Grado 2' ? 'selected' : '' }}>Grado 2</option>
+                                    <option value="Tipo A" {{ old('producto', $contrato->producto) == 'Tipo A' ? 'selected' : '' }}>Tipo A</option>
+                                    <option value="Tipo B" {{ old('producto', $contrato->producto) == 'Tipo B' ? 'selected' : '' }}>Tipo B</option>
+                                    <option value="Tipo C" {{ old('producto', $contrato->producto) == 'Tipo C' ? 'selected' : '' }}>Tipo C</option>
+                                    <option value="Crudo" {{ old('producto', $contrato->producto) == 'Crudo' ? 'selected' : '' }}>Crudo</option>
+                                    <option value="Orgánico" {{ old('producto', $contrato->producto) == 'Orgánico' ? 'selected' : '' }}>Orgánico</option>
                                 </select>
 
                                 @error('producto')
@@ -206,11 +206,11 @@
                                 <select id="terminoIncoterm" type="custom-select" class="form-control @error('terminoIncoterm') is-invalid @enderror"
                                     name="terminoIncoterm" required>
                                     <option selected disabled value="">Selecciona...</option>
-                                    <option value="1" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 1 ? 'selected' : '' }}>FOB</option>
-                                    <option value="2" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 2 ? 'selected' : '' }}>FCA</option>
-                                    <option value="3" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 3 ? 'selected' : '' }}>CIF</option>
-                                    <option value="4" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 4 ? 'selected' : '' }}>CFR</option>
-                                    <option value="5" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 5 ? 'selected' : '' }}>EXWORK</option>
+                                    <option value="FOB" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 'FOB' ? 'selected' : '' }}>FOB</option>
+                                    <option value="FCA" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 'FCA' ? 'selected' : '' }}>FCA</option>
+                                    <option value="CIF" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 'CIF' ? 'selected' : '' }}>CIF</option>
+                                    <option value="CFR" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 'CFR' ? 'selected' : '' }}>CFR</option>
+                                    <option value="EXWORK" {{ old('terminoIncoterm', $contrato->terminoIncoterm) == 'EXWORK' ? 'selected' : '' }}>EXWORK</option>
                                 </select>
                                 
                                 @error('terminoIncoterm')
@@ -234,7 +234,7 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Completar</button>
+                        <button type="submit" class="btn btn-primary">Guardar cambios</button>
                         <a href={{ url('contratos') }} class="btn btn-danger ml-4">Regresar</a>
                     </form>
                 </div>
