@@ -2,13 +2,32 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-left">
-        
-        <div class="col-md-6">
+    <div class="row justify-content-center">  
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Registro empleados') }}</div>
             
                 <div class="card-body">
+
+                    <ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-empleados-tab" href="#pills-empleados" role="tab" aria-controls="pills-empleados" aria-selected="true">Registro empleados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-empresas-tab" href="#pills-empresas" role="tab" aria-controls="pills-empleados" aria-selected="false">Registro empresas</a>
+                        </li>
+                    </ul>  
+
+                    <div class="tab-content" id="pills-tabContent">
+                        <div id="pills-empleados" class="tab-pane fade show active" role="tabpanel" aria-labelledby="pills-emp´leados-tab"><br>
+                            <h3>HOME</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+                        <div id="pills-empresas" class="tab-pane fade" role="tabpanel" aria-labelledby="pills-empresas-tab"><br>
+                            <h3>Menu 1</h3>
+                            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    </div>
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
             
@@ -298,4 +317,13 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+      $(".nav-tabs a").click(function(){
+        $(this).tab('show');
+      });
+    });
+</script>
+    
 @endsection
