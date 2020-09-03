@@ -99,9 +99,6 @@
             <h4>Historial de cambios</h4>
             @foreach ($ingenios as $ingenio)        
               @if (is_null($ingenio->observacion))
-              <div class="alert alert-primary" role="alert">
-              <strong>No se han registrado cambios ó ediciones para el registro con número de nominación: {{$ingenio->numNominacion}}</strong> 
-              </div>
               @else
               <div class="alert alert-primary" role="alert">
                 <strong>Para el formato con número de nominación: {{$ingenio->numNominacion}}</strong>

@@ -89,9 +89,6 @@
             <h4>Historial de cambios</h4>
             @foreach ($nominaciones as $nominacion)        
               @if (is_null($nominacion->observacion))
-              <div class="alert alert-primary" role="alert">
-              <strong>No se han registrado cambios ó ediciones para el registro con número de nominación: {{$nominacion->id}}</strong> 
-              </div>
               @else
               <div class="alert alert-primary" role="alert">
                 <strong>Para la nominación con número de indentificación: {{$nominacion->id}}</strong>

@@ -83,9 +83,6 @@
             <h4>Historial de cambios</h4>
             @foreach ($contratos as $contrato)        
               @if (is_null($contrato->observacion))
-              <div class="alert alert-primary" role="alert">
-              <strong>No se han registrado cambios ó ediciones para el registro con número de contrato: {{$contrato->id}}</strong> 
-              </div>
               @else
               <div class="alert alert-primary" role="alert">
                 <strong>Para el contrato con número de identificación: {{$contrato->id}}</strong>
